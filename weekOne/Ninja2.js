@@ -11,9 +11,13 @@ function Ninja (name){
 
 
 	this.kick = function(kickedNinja){
-		const damage = strength * 3;
-		kickedNinja.health -= damage;
-		console.log(kickedNinja.name + " was kicked by "+ this.name + " and lost " +damage+ " Health!");
+		if(kickedNinja instanceof Ninja){
+			const damage = strength * 3;
+			kickedNinja.health -= damage;
+			console.log(kickedNinja.name + " was kicked by "+ this.name + " and lost " +damage+ " Health!");
+		} else {
+			console.log("This is not a valid Ninja")
+		}	
 	}
 
 }
