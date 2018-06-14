@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>github Hunt</title>
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous">
+	</script>
+</head>
+<body>
+	<div>
+		<button id="btn">click me</button>
+	</div>
+
+	<script type="text/javascript">
+		$('#btn').click(function() { 
+			$.get("https://api.github.com/users/dkang417", displayName);
+		});
+		
+		function displayName(data) {
+  			$('body').append("<h1>" +data.login+ "</h1");
+  			$('body').append("<p>"+"My Github ID: "+ data.id+ "</p");
+  			$('body').append("<p>" + "My Github bio: " + data.bio+ "</p");
+		}
+	</script>
+
+</body>
+</html>
