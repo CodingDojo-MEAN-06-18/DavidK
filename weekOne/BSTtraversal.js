@@ -76,6 +76,7 @@ first.insert(50);
 first.insert(10);
 first.insert(5);
 
+
 // first.preOrder(first.root);
 
 // first.inOrder(first.root);
