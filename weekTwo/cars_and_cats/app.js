@@ -22,9 +22,28 @@ app.get('/cats', function(request, response) {
 app.get('/cars/new' , function(request, response) {
     response.render('form');
 })
+app.get('/cuddles', function(request,response) {
+    var cat_array = [
+        {name: "cuddles", food: "spaghetti", age: "21", spots: "behind the sofa"},
+    ];
+    response.render('users', {users: cat_array});
+})
+app.get('/garfield', function(request,response) {
+    var cat_array = [
+        {name: "garfield", food: "pizza", age: "40", spots: "on the bed"}
+    ];
+    response.render('users', {users: cat_array});
+})
+app.get('/unicat', function(request,response) {
+    var cat_array = [
+        {name: "unicat", food: "popcorn", age: "5", spots: "next to the bookshelf"}
+    ];
+    response.render('users', {users: cat_array});
+})
 app.listen(8000, function() {
     console.log("listening on 8000");
 })
+
 
 
 

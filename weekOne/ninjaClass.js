@@ -20,10 +20,7 @@ class Ninja {
 		this.health += 10;
 		return this;
 	}
-
 }
-
-
 
 class Sensei extends Ninja {
 	constructor(name){
@@ -45,9 +42,7 @@ class Sensei extends Ninja {
 
 }
 
-
-
-var ninja1 = new Ninja("Naruto");
+const ninja1 = new Ninja("Naruto");
 ninja1.sayName(); 
 ninja1.drinkSake().drinkSake().drinkSake().drinkSake();
 ninja1.showStats();
@@ -55,7 +50,6 @@ ninja1.showStats();
 const superSensei = new Sensei("Master Splinter");
 superSensei.speakWisdom();
 superSensei.showStats();
-
 
 
 
