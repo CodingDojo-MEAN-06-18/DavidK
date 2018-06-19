@@ -3,6 +3,8 @@ const express = require('express');
 
 const app = express();
 
+app.set('views', __dirname + '/views');
+app.set('view engine', 'ejs');
 
 app.use(express.static(__dirname + "/static"));
 
@@ -11,14 +13,14 @@ app.get('/', function(request, response) {
 })
 
 app.get('/cars', function(request, response) {
-    response.sendFile(__dirname + "/static/cars.html");
+    response.render('cars');
 })
 
 app.get('/cats', function(request, response) {
-    response.sendFile(__dirname + "/static/cats.html");
+    response.render('cats');
 })
-app.get('/form' , function(request, response) {
-    response.sendFile(__dirname + "/static/form.html");
+app.get('/cars/new' , function(request, response) {
+    response.render('form');
 })
 app.listen(8000, function() {
     console.log("listening on 8000");
