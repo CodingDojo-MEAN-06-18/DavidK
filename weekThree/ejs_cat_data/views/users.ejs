@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<% for (var x in users) { %>
+	<h2>Details Page </h2>
+	
+		<h3>Name: <%= users[x].name %></h3>
+		<h4>favorite food: <%= users[x].food %></h4>
+		<h4>age: <%= users[x].age %></h4>
+		<h4>sleeping spots: <%= users[x].spots %></h4>
+		<hr>
+	<% } %>
+</body>
+</html>
