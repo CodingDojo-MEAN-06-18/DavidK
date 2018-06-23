@@ -10,7 +10,7 @@ var bodyParser = require('body-parser');
 var session = require('express-session');
 
 app.use(session({
-  secret: 'hello123',
+  secret: 'keyboardkitteh',
   resave: false,
   saveUninitialized: true,
   cookie: { maxAge: 60000 }
