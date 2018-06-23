@@ -12,8 +12,8 @@ module.exports = function Route(app, server){
 		socket.on("post_form", function (data){
 			var random_number = Math.floor((Math.random() * 10) + 1);
 			//emit the data to the client
-			socket.emit('updated_message', {response:data});
-			socket.emit('random_number', {response: random_number});
+			io.emit('updated_message', {response:data});
+			io.emit('random_number', {response: random_number});
 		})
 	})
 
