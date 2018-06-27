@@ -17,56 +17,37 @@ app.get('/', function(req, res) {
   
   });
 
-var counter = 1;
-var messages = [];
-var users = [];
-function isUser(user){
-  const usersCount = users.length;
-
-  for (var i = 0; i < usersCount; i++){
-    if(user==users[i]){
-      return true;
-    }
-  
-  return false
-  }
 
 
 io.on('connection', function (socket) {
-  socket.on('got_a_new_user', function(data) {
-    // let message = "<li class = 'connected'>";
-    // message += `${data.name} has connected.`;
-    // message += "</li>";
-    
-    const existingUser = isUser(data.user);
-    const event = existingUser ? 'existing_user' : 'load_messages';
-    const data = existingUser ? {
-                    error: "This user already exits"
-                  } : { current_user: data.user, messages: messages };
 
-    if (!existingUser) {
-      users.push(data.user);
-    }
-
-    socket.emit(event, data);
-  }); 
-
-  socket.on('new_message', function(data) {
-    // let message = "<li class = 'message'>";
-    // message += `<span class="name">${data.name}</span>: ${data.message}`;
-    // message += "</li>";
-    messages.push({name:data.user, message: data.message});
-    io.emit('display_message', {new_message: data.message, user: data.user});
-  });
-  
-
-
-
-  socket.on('disconnect', function(data) {
+  socket.on('got_a_new_user', function(data){
     let message = "<li class = 'connected'>";
+    message += `${data.name} has connected.`;
+    message += "</li>";
+    socket.broadcast.emit('connection', {message:message});
+  });
+
+  // listen for new_message and add data.name and data.message
+   socket.on('new_message', function(data) {
+    let message = "<li class = 'message'>";
+    message += `<span class="name">${data.name}</span>: ${data.message}`;
+    message += "</li>";
+    io.emit('display_message', {message: message});
+  });
+   //<li class = 'message'> <span class="name">data.name</span> : data.message </li>
+
+   
+
+   //when user disconnects display who disconnected 
+   socket.on('disconnect', function(data){
+    let message = "<li class= 'connected'>";
     message += `${data.name} has disconnected.`;
     message += "</li>";
     socket.broadcast.emit('connection', {message: message});
-  });
+   })
 
-});
+  
+  
+
+})
