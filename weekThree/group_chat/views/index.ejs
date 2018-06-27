@@ -22,9 +22,7 @@
         $(document).ready(function () {
             var current_user;
             var name;    
-            while (!name){
-                name = prompt("Please enter your name:", "Your Name");
-            }
+           
 
             var socket = io();
             
@@ -34,8 +32,16 @@
                 $("#chat").append(data.message);
             });
 
+
             socket.on('display_message', function(data) {
-                $("#chat").append(data.message);
+                var messages = data.message;
+                var messageThread = "";
+                for(var i = 0; i < messages.length; i++){
+                    messageThread += "<p>" + messages[i].name
+ + ":" + messages[i].message + "</p";
+                }
+
+                $("#chat").append(messageThread);
             })
 
             $('form').on('submit', function(e) {
