@@ -7,6 +7,8 @@ var mongoose = require("mongoose");
 // Require body-parser (to receive post data from clients)
 var bodyParser = require('body-parser');
 // Integrate body-parser with our App
+var session = require('express-session');
+var flash = require('express-flash');
 app.use(bodyParser.urlencoded({ extended: true }));
 // Require path
 var path = require('path');
@@ -17,36 +19,65 @@ app.set('views', path.join(__dirname, './views'));
 // Setting our View Engine set to EJS
 app.set('view engine', 'ejs');
 
+app.use(flash());
+app.use(session({
+    secret: 'mypassword',
+    resave: false,
+    saveUninitialized: true,
+    cookie: { maxAge: 60000 },
+}));
+
+
 const { Schema } = mongoose;
 
-//connect our mongoose
-mongoose.connect('mongodb://localhost/basic_mongoose');
+// Set up database connection, Schema, model
+mongoose.connect('mongodb://localhost/quoting_dojo');
 mongoose.connection.on('connected', ()=> console.log('connected to mongodb'));
 
+var QuoteSchema = new mongoose.Schema({
+    name: { type: String, required: true, minlength: 2 },
+    quote: { type: String, required: true, minlength: 2 },
+    date: { type: Date, default: Date.now }
+}, { timestamps: true });
 
-app.get('/', function(req, res) {
-    // This is where we will retrieve the users from the database and include them in the view page we will be rendering.
-   
+mongoose.model('Quote', QuoteSchema);
+
+var Quote = mongoose.model('Quote');
+
+
+
+
+app.get('/', function(req, res) { 
     res.render('index');
 });
 
 
-// Add User Request 
-app.post('/users', function(req, res) {
-  console.log("POST DATA", req.body);
-  // create a new User with the name and age corresponding to those from req.body
-  var user = new User({name: req.body.name, age: req.body.age});
-  // Try to save that new user to the database (this is the method that actually inserts into the db) and run a callback function with an error (if any) from the operation.
-  user.save(function(err) {
-    // if there is an error console.log that something went wrong!
-    if(err) {
-      console.log('something went wrong');
-    } else { // else console.log that we did well and then redirect to the root route
-      console.log('successfully added a user!');
-      res.redirect('/');
-    }
-  })
-})
+app.get('/quotes', function(req,res){
+	//grab all quotes and pass into view
+	let quoteHere;
+	query = Quote.find({}, function(err,quotes){
+		quoteHere = quotes; 
+		res.render("quotes", {quotes: quoteHere});
+	});
+});
+
+
+
+app.post('/quotes', function(req, res) {
+ 	let quote = new Quote(req.body);
+ 	quote.save(function(err) {
+ 		if(err){
+ 			for (let key in err.errors){
+ 				req.flash('quote', err.errors[key].message)
+ 			}
+ 			res.redirect('/');
+ 		} else {
+ 			req.flash('success', 'successfully added to the database!');
+ 			res.redirect('/quotes');
+ 		}
+ 	});
+
+});
 
 // Setting our Server to Listen on Port: 8000
 app.listen(8000, function() {

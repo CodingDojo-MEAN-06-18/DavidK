@@ -6,11 +6,18 @@
 <body>
 	<div>
 		<h1>Welcome to Quoting Dojo</h1>
-		<form action="/users" request="post">
+		  <% if(messages.quote) { %>
+	        <% for (var message of messages.quote) { %>
+	        <h3><%= message %></h3>
+	        <% } %>
+	    <% } %>
+    
+		<form action="/quotes" method="post">
 			Your Name: <input type="text" name="name"><br>
-			Your quote:  <input type="text" name="quote"><br>
+			Your quote:  <textarea name="quote" rows="10" cols="50"></textarea><br>
 			<input type="submit" value="Add my quote!">
 		</form>
+		<a href="/quotes">Skip to quotes!</a>
 	</div>
 </body>
 </html>
