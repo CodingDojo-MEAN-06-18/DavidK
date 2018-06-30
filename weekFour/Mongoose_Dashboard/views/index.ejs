@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Index</title>
+</head>
+<body>
+  <h1>Welcome to the Animal Pack page! </h1>
+
+   	<% if(messages.animal) { %>
+	    <% for (var message of messages.animal) { %>
+	    <h2> ****** <%= message %> ******* </h2>
+	    <% } %>
+	<% } %>
+
+  <a href="/new">Create a new animal</a>
+  <!-- Display all animals here -->
+  <p>Check out our current animals in the animal pack:</p>
+
+   <% for (let animal of animals) { %>
+    <h3><a href="/<%= animal._id %>"> Name: <%= animal.name %> </a> </h3>
+    <form action="/<%= animal._id %>/delete/" method='post'>
+        <input type="submit" value="Delete">
+    </form>
+   
+  <% } %>
+ 
+</body>
+</html>

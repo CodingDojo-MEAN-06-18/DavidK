@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>New Animal</title>
+</head>
+<body>
+  <h1>Add a new animal the the Animal Pack!</h1>
+
+   	<% if(messages.animals) { %>
+	    <% for (var message of messages.animals) { %>
+	    <h3><%= message %></h3>
+	    <% } %>
+	<% } %>
+
+  <form action="/" method='post'>
+    Name: <input type="text" name="name">
+    Age: <input type="text" name="age">
+    Color: <input type="text" name="color">
+    <input type="submit" value="Add new animal!">
+  </form>
+</body>
+</html>
