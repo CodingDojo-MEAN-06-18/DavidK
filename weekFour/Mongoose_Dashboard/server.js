@@ -54,7 +54,7 @@ const animalSchema = new mongoose.Schema({
         required: [true, 'Please provide a color']
     },
     date: { 
-    	type: Date, 
+    	type: Date,  
     	default: Date.now 
     }
 
@@ -86,7 +86,12 @@ app.get('/new', function(req,res) {
 
 app.post('/', function(req,res) {
     console.log("POST DATA", req.body);
-
+    // Animal.create(request.body)
+        // .then(animal => {
+        //     console.log('animal', animal);
+        //response.redirect('/');
+        // })
+        //  .catch(console.log);
     let animal = new Animal(req.body);
     animal.save(function(err) {
         if(err){
