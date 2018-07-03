@@ -1,6 +1,6 @@
 const Quote = require("../models/quote.js");
 
-
+//export to routes
 module.exports = {
     
     index: function(req, res) {

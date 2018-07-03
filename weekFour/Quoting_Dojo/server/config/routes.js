@@ -2,12 +2,11 @@ const quotes = require('../controllers/quotes.js')
 
 module.exports = function (app){
 	
-	//routes 
+	//routes from controller 
 	app.get('/', function(req, res) { 
 	   quotes.index(req,res);
 	});
 
-	//controller quotes
 	app.get('/quotes', function(req,res){
 		//grab all quotes and pass into view
 		quotes.get_quotes(req,res);

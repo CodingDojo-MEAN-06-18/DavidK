@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const session = require('express-session');
 const flash = require('express-flash');
 const path = require('path');
+const mongoose = require('mongoose'),
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, './static')));
 app.set('views', path.join(__dirname, './views'));
@@ -15,6 +16,7 @@ app.use(session({
     saveUninitialized: true,
     cookie: { maxAge: 60000 },
 }));
+
 
 require('./server/config/routes.js')(app);
 require('./server/config/mongoose.js');

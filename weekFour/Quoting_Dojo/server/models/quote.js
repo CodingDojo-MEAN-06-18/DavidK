@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-
+//models get exported to controller
 
 const QuoteSchema = new mongoose.Schema({
     name: { 
