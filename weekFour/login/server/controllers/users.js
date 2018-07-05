@@ -4,7 +4,7 @@ const User = require('mongoose').model('User') //getter
 const express = require('express');
 
 const app = express();
-const bcrypt = require("bcrypt");
+const bcrypt = require("bcrypt-as-promised");
 const session = require("express-session")
 const flash = require('express-flash');
 
@@ -34,7 +34,8 @@ module.exports = {
 
 	new: function(req,res) {
 		let data = req.body;
-
+		console.log(data);
+		console.log(req.body.password);
 	    bcrypt.hash(req.body.password, 10)
 	        .then(hashed_password => {
 	            data.password = hashed_password;

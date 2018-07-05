@@ -4,7 +4,7 @@ const User = mongoose.model('User') //getter
 const express = require('express');
 
 const app = express();
-const bcrypt = require("bcrypt");
+const bCrypt = require('bcrypt-as-promised');
 const session = require("express-session")
 const flash = require('express-flash');
 
