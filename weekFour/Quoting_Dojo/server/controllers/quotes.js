@@ -8,10 +8,14 @@ module.exports = {
     },
 
     get_quotes: function(req,res){
-        let quoteHere;
-        query = Quote.find({}, function(err,quotes){
-            quoteHere = quotes; 
-            res.render("quotes", {quotes: quoteHere});
+        
+        Quote.find({}, function(err,quotes){
+            if(err){
+                console.log("cant find quotes")
+                res.redirect('/')
+            } else {
+                res.render("quotes", {quotes: quotes});
+            }
         });
     },
 

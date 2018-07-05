@@ -6,10 +6,13 @@ const mongoose = require('mongoose');
 module.exports = {
     
     index: function(req, res) {
-       	let animalHere;
-    	query = Animal.find({}, function(err,animals){
-        animalHere = animals; 
-        res.render("index", {animals: animalHere});
+       	Animal.find({}, function(err,animals){
+        if(err){
+        	console.log("couldnt find animal")
+        	res.redirect('/')
+        } else {
+        res.render("index", {animals: animals});
+    	}
 	    });
     },
 

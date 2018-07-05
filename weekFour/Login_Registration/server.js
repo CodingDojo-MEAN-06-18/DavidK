@@ -6,6 +6,7 @@ const flash = require('express-flash');
 const path = require('path');
 const session = require('express-session');
 const bcrypt = require('bcrypt-as-promised');
+const validate = require('mongoose-validator');
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, './static')));
@@ -20,11 +21,18 @@ app.use(session({
     saveUninitialized: true,
     cookie: { maxAge: 60000 },
 }));
+
+// middleware to make 'user' available to all templates
+app.use(function(request, response, next) {
+    response.locals.user = request.session.user;
+    next();
+});
+
 // Mongoose: schema, models
 require('./server/models/user.js');
 
 
-require('./server/config/routes.js')(app);
+require('./server/config/routes')(app);
 
 
 

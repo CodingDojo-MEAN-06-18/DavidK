@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>Dashboard</title>
+</head>
+<body>
+    <div id="errors">
+        <% if ( expressFlash.length > 0 ) { %>
+                <% for (var x = 0; x < expressFlash.length; x++) { %>
+                <li><%= expressFlash[x] %></li>
+                <% } %>
+                </ul>
+        <% } %>
+    </div>
+    <h1>Hello, <%= user_info.first_name %></h1>
+    <a href="/user/logout">Logout</a>
+    <h3>Details About You:</h3>
+    <ul>
+        <li>First Name:
+            <%= user_info.first_name %>
+        </li>
+        <li>Last Name:
+            <%= user_info.last_name %>
+        </li>
+        <li>E-mail:
+            <%= user_info.email %>
+        </li>
+        <li>Birthday:
+            <%= user_info.birthday %>
+        </li>
+        <li>Last Updated:
+            <%= user_info.updatedAt %>
+        </li>
+    </ul>
+</body>
+</html>

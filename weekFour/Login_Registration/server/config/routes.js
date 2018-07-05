@@ -1,4 +1,4 @@
-const users = require('../controllers/users.js')
+const users = require('../controllers/users');
 
 
 
@@ -19,11 +19,11 @@ module.exports = function (app){
 	    users.post_newuser(req,res);
 	});
 
-	app.get('/login', function(req,res) {
+	app.post('/login', function(req,res) {
 	   users.login_user(req,res);
 	});
 
-	app.get('/logout', function(req, res){
+	app.post('/logout', function(req, res){
 	    users.logout_user(req,res);
 	});
 
