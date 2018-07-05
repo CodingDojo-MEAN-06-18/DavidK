@@ -1,22 +1,19 @@
-const persons = require('../controllers/1955.js')
+const mongoose = require('mongoose');
+
+const name = mongoose.model('Name');
+const nameController = require('../controllers/names');
 
 module.exports = function (app){
 		
 	//routes from controller 
-	app.get('/', function(req, res) { 
-		persons.index(req,res);
-	});
+	app.get('/', nameController.index);
+	
 
-	app.get('/new/:name/', function(req,res) {
-	    persons.create(req,res);
-	});
+	app.get('/new/:name/', nameController.create);
 
-	app.get('/remove/:name/', function(req,res) {
-	   persons.destroy(req,res);
-	});
 
-	app.get('/:name', function(req, res){
-	    persons.show(req,res);
-	});
+	app.get('/remove/:name/', nameController.destroy);
 
+
+	app.get('/:name', nameController.show);
 };
