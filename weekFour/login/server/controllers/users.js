@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
-// const User = mongoose.model('User') //getter
-const User = require("../models/user.js");
+const User = require('mongoose').model('User') //getter
+// const User = require("../models/user.js");
 const express = require('express');
 
 const app = express();
@@ -23,7 +23,7 @@ module.exports = {
     	res.render('index' , {expressFlash: req.flash('success')});
 	},
 	
-	get_users: function(req, res) {
+	show: function(req, res) {
 	    if (session.login == false) {
 	        console.log("You don't have persmission!");
 	        res.redirect('/');
@@ -32,7 +32,7 @@ module.exports = {
 	    }
 	},
 
-	post_newuser: function(req,res) {
+	new: function(req,res) {
 		let data = req.body;
 
 	    bcrypt.hash(req.body.password, 10)
@@ -98,15 +98,6 @@ module.exports = {
 	    session.user = '';
 	    res.redirect('/');
 	}
-
-
-
-
-
-
-
-
-
 
 }
 
