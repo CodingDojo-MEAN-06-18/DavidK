@@ -64,23 +64,24 @@ module.exports = {
 
 	login_user: function(req,res) {
 
-		User.findOne({email: req.body.login_email} 
-	        .then(userInfo => {
-	        	if(!userInfo) {
-	        		throw new Error();
+		User.findOne({email: req.body.login_email}) 
+	        .then( user => {
+	        	if(!user) {
+	        		req.flash('login', 'that email password combo doesnt exist')
 	        		res.redirect('/');
 	        	}
-	        	return bcrypt.compare(req.body.login_password, user[0].password)
+	        	console.log(user);
+	        	bcrypt.compare(req.body.login_password, user.password)
 	            .then(result => {
-	                if (result == true) {
+	                if (result) {
 	                    console.log('login successful');
-	                    session.user = user[0];
+	                    req.session.userID= user.id;
 	                    session.login = true;
 	                    req.flash('success', 'Login Successful.');
 	                    res.redirect('/user/dashboard');
 	                } else {
 	                    console.log('User password incorrect');
-	                    req.flash('success', 'Wrong password.');
+	                    req.flash('login', 'Wrong password.');
 	                    res.redirect('/');
 	                }
 	            })
@@ -89,7 +90,7 @@ module.exports = {
 	                res.redirect('/');
 	            });
 	        
-	   		 }));
+	   		 });
 
 	},
 

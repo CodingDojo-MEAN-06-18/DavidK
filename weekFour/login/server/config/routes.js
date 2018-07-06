@@ -19,7 +19,7 @@ module.exports = function (app){
 	//    users.login_user(req,res);
 	// });
 
-	app.get('/user/logout', users.logout_user); 
+	app.post('/user/logout', users.logout_user); 
 	// app.post('/user/logout', function(req, res){
 	//     users.logout_user(req,res);
 	// });
