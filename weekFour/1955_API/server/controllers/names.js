@@ -1,7 +1,6 @@
 const name = require("mongoose").model("Name");
 
 
-
 module.exports = {
 
 	index(req, res){
@@ -16,7 +15,7 @@ module.exports = {
     },
 
     show(req,res){
-	    name.findOne( req.params )
+	    name.findOne(req.params)
         .then( name => {
             res.json(name);
         })
