@@ -28,7 +28,10 @@ module.exports = {
 	        console.log("You don't have persmission!");
 	        res.redirect('/');
 	    } else {
-	        res.render('dashboard', {user_info: session.user, expressFlash: req.flash('success')});
+	    	User.findById(req.session.userID).then(user => {
+	    		res.render('dashboard', {user: session.user});
+	    	})
+	       
 	    }
 	},
 
@@ -77,8 +80,8 @@ module.exports = {
 	                    console.log('login successful');
 	                    req.session.userID= user.id;
 	                    session.login = true;
-	                    req.flash('success', 'Login Successful.');
-	                    res.redirect('/user/dashboard');
+	                    // req.flash('success', 'Login Successful.');
+	                    res.render('dashboard', {user:user});
 	                } else {
 	                    console.log('User password incorrect');
 	                    req.flash('login', 'Wrong password.');

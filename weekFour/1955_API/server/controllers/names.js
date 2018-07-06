@@ -16,9 +16,9 @@ module.exports = {
     },
 
     show(req,res){
-	    name.findOne({ name: req.params.name })
-        .then( person => {
-            res.json(person);
+	    name.findOne( req.params )
+        .then( name => {
+            res.json(name);
         })
         .catch( error => {
             console.log("Get One Error: ", error);
@@ -27,9 +27,9 @@ module.exports = {
     },
 
     create: function(req, res) {
-    	name.create({ name: req.params.name })
-        .then( person => {
-            res.redirect('/' + person.name);
+    	name.create(req.params)
+        .then( name => {
+            res.redirect('/' + name.name);
         })
         .catch( error => {
             console.log("Add One Error: ", error);
@@ -38,8 +38,8 @@ module.exports = {
 	},
 
 	destroy: function(req,res) {
-		name.deleteOne({ name: req.params.name })
-        .then( person => {
+		name.deleteOne(req.params)
+        .then( name => {
             res.redirect('/');
         })
         .catch( error => {
