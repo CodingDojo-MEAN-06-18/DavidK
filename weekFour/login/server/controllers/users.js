@@ -1,15 +1,12 @@
 const mongoose = require('mongoose');
 const User = require('mongoose').model('User') //getter
-// const User = require("../models/user.js");
 const express = require('express');
-
 const app = express();
 const bcrypt = require("bcrypt-as-promised");
 const session = require("express-session")
 const flash = require('express-flash');
 
 app.use(flash());
-
 app.use(session({
     secret: 'mypassword',
     resave: false,
@@ -45,7 +42,7 @@ module.exports = {
 	            
 	            User.create(data, function(err, user){
 	                if (err) {
-	                    // console.log(err);
+	 
 	                    for (var key in err.errors) {
 	                        req.flash('success', err.errors[key].message);
 	                    }
@@ -70,7 +67,7 @@ module.exports = {
 		User.findOne({email: req.body.login_email}) 
 	        .then( user => {
 	        	if(!user) {
-	        		req.flash('login', 'that email password combo doesnt exist')
+	        		req.flash('success', 'that email password combo doesnt exist')
 	        		res.redirect('/');
 	        	}
 	        	console.log(user);
@@ -80,21 +77,26 @@ module.exports = {
 	                    console.log('login successful');
 	                    req.session.userID= user.id;
 	                    session.login = true;
-	                    // req.flash('success', 'Login Successful.');
 	                    res.render('dashboard', {user:user});
 	                } else {
 	                    console.log('User password incorrect');
-	                    req.flash('login', 'Wrong password.');
+	                    req.flash('success', 'Wrong password.');
 	                    res.redirect('/');
 	                }
 	            })
+	            .catch( error => {
+            	console.log("Error: ", error);
+            	req.flash('success', "That password does not match the one in our database.");
+            	res.redirect("/");
+            	});
+	        	})
 	            .catch(error => {
 	                console.log(error);
+	                for (let key in error.errors){
+	                	req.flash('success', error.errors[key].message)
+	                }
 	                res.redirect('/');
-	            });
-	        
-	   		 });
-
+	            });	
 	},
 
 	logout_user: function(req,res){
