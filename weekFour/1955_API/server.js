@@ -15,6 +15,6 @@ require('./server/config/database');
 require('./server/config/routes')(app);
 
 // Setting our Server to Listen on Port: 8000
-app.listen(8000, function() {
-    console.log("listening on port 8000");
-})
+const port = process.env.PORT || 8000;
+const server = app.listen(port, () => console.log(`listening on port ${port}`));
+
