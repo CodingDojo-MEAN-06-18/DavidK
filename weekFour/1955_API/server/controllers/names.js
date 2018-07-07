@@ -1,10 +1,10 @@
-const name = require("mongoose").model("Name");
+const Name = require("mongoose").model("Name");
 
 
 module.exports = {
 
 	index(req, res){
-       	name.find({}, function(err,name){
+       	Name.find({}, function(err,name){
        		if(err){
        			console.log("something went wrong", err);
        			res.json({message: "Error", error: err});
@@ -15,7 +15,7 @@ module.exports = {
     },
 
     show(req,res){
-	    name.findOne(req.params)
+	    Name.findOne(req.params)
         .then( name => {
             res.json(name);
         })
@@ -26,7 +26,7 @@ module.exports = {
     },
 
     create: function(req, res) {
-    	name.create(req.params)
+    	Name.create(req.params)
         .then( name => {
             res.redirect('/' + name.name);
         })
@@ -37,7 +37,7 @@ module.exports = {
 	},
 
 	destroy: function(req,res) {
-		name.deleteOne(req.params)
+		Name.deleteOne(req.params)
         .then( name => {
             res.redirect('/');
         })
