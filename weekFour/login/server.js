@@ -1,7 +1,5 @@
-// Configuration
 const express = require('express');
 const app = express();
-
 const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({extended: true}));
 
@@ -12,7 +10,7 @@ app.set('view engine', 'ejs');
 
 const session = require('express-session');
 app.use(session({
-    secret: 'secretpassword',
+    secret: 'secret',
     resave: false,
     saveUninitialized: true,
     cookie: {maxAge: 60000},
