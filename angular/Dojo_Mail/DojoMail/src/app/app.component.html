@@ -1,0 +1,25 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+    
+</div>
+<table style="width:70%" class="tab">
+  <h1>
+      Dojo Mail!
+  </h1>
+  <tr>
+    <th>Email</th>
+    <th>Importance</th> 
+    <th>Subject</th>
+    <th>Content</th>
+  </tr>
+
+  <tr *ngFor='let email of emails'>
+    <td>{{email.address}}</td>
+    <td *ngIf='email.importance'>High</td>
+    <td *ngIf='!email.importance'>Low</td> 
+    <td>{{email.subject}}</td>
+    <td>{{email.content}}</td>
+  </tr>
+  
+</table>
+
