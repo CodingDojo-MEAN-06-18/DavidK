@@ -35,7 +35,4 @@ export class AppComponent {
      content: 'just kidding'
    }
  ]
-
-
-
 }
