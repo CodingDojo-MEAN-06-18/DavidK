@@ -1,7 +1,10 @@
 .yellow {
     background-color: yellow;
 }
-
+.ghost {
+    
+    visibility: hidden;
+}
 button {
     width: 100px;
     height: 50px;

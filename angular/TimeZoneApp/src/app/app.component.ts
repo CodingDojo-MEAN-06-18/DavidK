@@ -22,8 +22,9 @@ export class AppComponent {
     }
     this.lastTimeZoneSelected = data;
   }
-  clear(){
-    this.lastTimeZoneSelected = null; 
+
+  clear(data){
+    this.lastTimeZoneSelected = data; 
   }
 
 }
