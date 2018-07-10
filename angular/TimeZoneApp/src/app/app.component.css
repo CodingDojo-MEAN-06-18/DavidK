@@ -1,8 +1,7 @@
 .yellow {
-    background-color: yellow;
+    background-color: #FFFF99;
 }
-.ghost {
-    
+.ghost { 
     visibility: hidden;
 }
 button {
