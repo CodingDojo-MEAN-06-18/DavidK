@@ -1,0 +1,10 @@
+<h1 [ngStyle]="{'color': colors[random()]}">{{ header }}</h1>
+
+<div 
+class="pixel"
+*ngFor="let color of colors"
+[ngStyle]="{ 'background-color': colors[random()] }">
+</div>
+
+
+
