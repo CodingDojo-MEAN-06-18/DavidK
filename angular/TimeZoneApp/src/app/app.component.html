@@ -1,0 +1,17 @@
+<div> 
+<h1>{{ header }}</h1>
+</div> 
+
+<div class="main">
+    <button (click)="getDateByZone('PST')" [ngClass]="{yellow: lastTimeZoneSelected === 'PST'}">PST</button>
+    <button (click)="getDateByZone('MST')" [ngClass]="{yellow: lastTimeZoneSelected === 'MST'}">MST</button>
+    <button (click)="getDateByZone('CST')" [ngClass]="{yellow: lastTimeZoneSelected === 'CST'}">CST</button>
+    <button (click)="getDateByZone('EST')" [ngClass]="{yellow: lastTimeZoneSelected === 'EST'}">EST</button>
+    <button (click)="clear()">Clear</button>
+</div> 
+
+<h1 class="section">{{ time | date: 'medium' }}</h1>
+
+
+
+
