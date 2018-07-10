@@ -26,4 +26,5 @@ export class AppComponent {
     return Math.floor(Math.random() * this.colors.length);
   }
 
+
 }
