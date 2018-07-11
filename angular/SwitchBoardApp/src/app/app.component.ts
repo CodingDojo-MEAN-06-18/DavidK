@@ -10,10 +10,10 @@ export class AppComponent {
   
   switches: Boolean[] = [true,true,true,true,true,true,true,true,true,true];
   
-
-  flipSwitch(i){
+  flipswitch(i){
     this.switches[i] = !this.switches[i];
   }
+ 
  
 }
 
