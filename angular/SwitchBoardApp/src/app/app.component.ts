@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title: String = 'Switchboard';
   
-  switches = [true,true,true,true,true,true,true,true,true,true];
+  switches: Boolean[] = [true,true,true,true,true,true,true,true,true,true];
   
 
   flipSwitch(i){
