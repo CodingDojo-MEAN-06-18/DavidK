@@ -17,7 +17,7 @@
 <p *ngIf='loggedIn'> You're logged in as Michael G Scott. </p>
 <p *ngIf='!loggedIn'> Please log in to the office </p>
 
-<h5 *ngFor='let number of address.numbers'>
+<h5 *ngFor='let number of numbers'>
  <span [ngClass]="{'red': true, 'bold': true }">Styling</span> {{ number }}
 </h5>
 
