@@ -4,6 +4,13 @@
   </h1>
 </div>
 
+<div class="registered" *ngIf="userForm.submitted && users[0]">
+  <p>Thank you for registering with us {{ users[users.length - 1].firstname }}! We just sent you a confirmation email at:
+    <a>{{ users[users.length - 1].email }}</a>, and we will send all mail to {{ users[users.length - 1].address }} {{ users[users.length-
+    1].unit}}, {{ users[users.length - 1].city }}, {{ users[users.length - 1].state }}.</p>
+  <p>Have a wonderful day!</p>
+</div>
+
 <div>
   <fieldset>
     <legend>Account Information</legend>
@@ -11,13 +18,13 @@
     <form (submit)='onSubmit($event, userForm)' #userForm='ngForm'>
       <div>
         <label for="">First Name</label>
-        <input type="text" name="firstname" required minlength="4" maxlength="24" [(ngModel)]='user.firstname' #firstname="ngModel">
+        <input type="text" name="firstname" required minlength="2" maxlength="24" [(ngModel)]='user.firstname' #firstname="ngModel">
         <!-- {{ firstname.errors | json }} {{ firstname.valid | json }} -->
         <div class="errors" *ngIf="!firstname.valid && firstname.touched"> First name is required </div>
       </div>
       <div>
         <label for="">Last Name</label>
-        <input type="text" name="lastname" required minlength="4" maxlength="24" [(ngModel)]='user.lastname' #lastname="ngModel">
+        <input type="text" name="lastname" required minlength="2" maxlength="24" [(ngModel)]='user.lastname' #lastname="ngModel">
         <div class="errors" *ngIf="!lastname.valid && lastname.touched"> Last name is required</div>
       </div>
       <div>
