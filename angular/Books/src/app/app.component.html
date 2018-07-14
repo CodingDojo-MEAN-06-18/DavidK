@@ -1,6 +1,6 @@
 <section>
   <fieldset>
-    <legend> Add a book </legend>
+    <legend> Create Book </legend>
     {{ bookForm.value | json }}
     <form (submit)='onSubmit($event, bookForm)' #bookForm='ngForm'>
       <div>
@@ -24,7 +24,7 @@
         <input type="text" name="publisher" [(ngModel)]='book.publisher'>
       </div>
 
-      <button>Submit</button>
+      <button *ngIf='bookForm.valid'>Submit</button>
     </form>
   </fieldset>
 </section>

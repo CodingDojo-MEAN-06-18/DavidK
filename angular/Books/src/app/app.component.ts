@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { Book } from './book';
+import { Book } from './models/book';
 import { NgForm } from '@angular/forms';
 
 
