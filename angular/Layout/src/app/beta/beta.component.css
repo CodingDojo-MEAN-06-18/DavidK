@@ -1,0 +1,8 @@
+div.main {
+  width: 600px;
+  margin: 30px;
+  padding: 10px;
+  background-color: rgb(134, 159, 235);
+  display: inline-block;
+  vertical-align: top;
+}
