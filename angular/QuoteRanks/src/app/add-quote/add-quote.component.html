@@ -1,0 +1,21 @@
+<div>
+  <form (submit)='onSubmit($event, userForm)' #userForm='ngForm'>
+    <div>
+      <!-- {{ userForm.value | json }} -->
+      <h1>Add A Quote</h1>
+      <div class="errors" *ngIf="!content.valid && content.touched"> Quote is required </div>
+      <div class="errors" *ngIf="!author.valid && author.touched"> Author is required</div>
+      <textarea rows="4" cols="50" name="content" required minlength="2" maxlength="24" [(ngModel)]='newQuote.content' #content="ngModel"></textarea>
+      <!-- {{ content.errors | json }} {{ content.valid | json }} -->
+
+    </div>
+
+    <div>
+      <label for="">Author</label>
+      <input type="text" name="author" required minlength="2" maxlength="24" [(ngModel)]='newQuote.author' #author="ngModel">
+
+    </div>
+    <button>Add Quote</button>
+  </form>
+
+</div>
