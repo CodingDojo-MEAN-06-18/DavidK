@@ -7,16 +7,18 @@
     <div>
       <label for="">Initial Power Level: </label>
       <input type="number" max="100" min="0" [(ngModel)]="power">
-      <button>Calculate Powers</button>
+      <p class="calculate">Calculate Powers</p>
+
     </div>
 
   </div>
 
-  <app-human></app-human>
-  <app-saiyon></app-saiyon>
-  <app-supersaiyon></app-supersaiyon>
-  <app-supersaiyontwo></app-supersaiyontwo>
-  <app-supersaiyonthree></app-supersaiyonthree>
-  <app-supersaiyonfour></app-supersaiyonfour>
-
+  <div class="show">
+    <app-human [power]="power"></app-human>
+    <app-saiyon [power]="power"></app-saiyon>
+    <app-supersaiyon [power]="power"></app-supersaiyon>
+    <app-supersaiyontwo [power]="power"></app-supersaiyontwo>
+    <app-supersaiyonthree [power]="power"></app-supersaiyonthree>
+    <app-supersaiyonfour [power]="power"></app-supersaiyonfour>
+  </div>
 </div>
