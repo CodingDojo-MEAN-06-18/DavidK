@@ -20,22 +20,51 @@
         <label for="">First Name</label>
         <input type="text" name="firstname" required minlength="2" maxlength="24" [(ngModel)]='user.firstname' #firstname="ngModel">
         <!-- {{ firstname.errors | json }} {{ firstname.valid | json }} -->
-        <div class="errors" *ngIf="!firstname.valid && firstname.touched"> First name is required </div>
+        <div class="errors" *ngIf="(firstname.touched) && firstname.errors">
+          <div *ngIf='firstname.errors.required'>
+            First name is required
+          </div>
+          <div *ngIf='firstname.errors.minlength'>
+            Firstname must be at least {{firstname.errors.minlength.requiredLength }} characters.
+          </div>
+        </div>
       </div>
       <div>
         <label for="">Last Name</label>
         <input type="text" name="lastname" required minlength="2" maxlength="24" [(ngModel)]='user.lastname' #lastname="ngModel">
-        <div class="errors" *ngIf="!lastname.valid && lastname.touched"> Last name is required</div>
+        <div class="errors" *ngIf="(lastname.touched) && lastname.errors">
+          <div *ngIf='lastname.errors.required'>
+            Last name is required
+          </div>
+          <div *ngIf='lastname.errors.minlength'>
+            Last name must be at least {{ lastname.errors.minlength.requiredLength }} characters.
+          </div>
+        </div>
       </div>
       <div>
         <label for="">Email</label>
         <input type="text" name="email" required minlength="4" maxlength="24" [(ngModel)]='user.email' #email="ngModel">
-        <div class="errors" *ngIf="!email.valid && email.touched"> email must be valid </div>
+        <div class="errors" *ngIf="(email.touched) && email.errors">
+          <div *ngIf='email.errors.required'>
+            Email must be valid
+          </div>
+          <div *ngIf='email.errors.minlength'>
+            Email must be at least {{ email.errors.minlength.requiredLength }} characters.
+          </div>
+        </div>
       </div>
       <div>
         <label for="">Password</label>
         <input type="text" name="password" minlength="16" [(ngModel)]='user.password' #password="ngModel" required>
-        <div class="errors" *ngIf="!password.valid && password.touched"> Password must be at least 16 characters </div>
+        <div class="errors" *ngIf="(password.touched) && password.errors">
+          <div *ngIf='password.errors.required'>
+            Must have a password
+          </div>
+          <div *ngIf='password.errors.minlength'>
+            Password must be at least {{ password.errors.minlength.requiredLength }} characters.
+          </div>
+
+        </div>
       </div>
       <div>
         <label for="">Password Confirmation</label>
