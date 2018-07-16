@@ -20,7 +20,7 @@
         <label for="">First Name</label>
         <input type="text" name="firstname" required minlength="2" maxlength="24" [(ngModel)]='user.firstname' #firstname="ngModel">
         <!-- {{ firstname.errors | json }} {{ firstname.valid | json }} -->
-        <div class="errors" *ngIf="(firstname.touched) && firstname.errors">
+        <div class="errors" *ngIf="(firstname.touched || firstname.dirty) && firstname.errors">
           <div *ngIf='firstname.errors.required'>
             First name is required
           </div>
@@ -32,7 +32,7 @@
       <div>
         <label for="">Last Name</label>
         <input type="text" name="lastname" required minlength="2" maxlength="24" [(ngModel)]='user.lastname' #lastname="ngModel">
-        <div class="errors" *ngIf="(lastname.touched) && lastname.errors">
+        <div class="errors" *ngIf="(lastname.touched || lastname.dirty) && lastname.errors">
           <div *ngIf='lastname.errors.required'>
             Last name is required
           </div>
@@ -44,7 +44,7 @@
       <div>
         <label for="">Email</label>
         <input type="text" name="email" required minlength="4" maxlength="24" [(ngModel)]='user.email' #email="ngModel">
-        <div class="errors" *ngIf="(email.touched) && email.errors">
+        <div class="errors" *ngIf="(email.touched || email.dirty) && email.errors">
           <div *ngIf='email.errors.required'>
             Email must be valid
           </div>
@@ -56,7 +56,7 @@
       <div>
         <label for="">Password</label>
         <input type="text" name="password" minlength="16" [(ngModel)]='user.password' #password="ngModel" required>
-        <div class="errors" *ngIf="(password.touched) && password.errors">
+        <div class="errors" *ngIf="(password.touched || email.dirty) && password.errors">
           <div *ngIf='password.errors.required'>
             Must have a password
           </div>

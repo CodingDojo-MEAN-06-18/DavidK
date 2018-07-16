@@ -2,10 +2,16 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
+import { BookListComponent } from './books/book-list/book-list.component';
+import { BookNewComponent } from './books/book-new/book-new.component';
+import { BookDetailComponent } from './books/book-detail/book-detail.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    BookListComponent,
+    BookNewComponent,
+    BookDetailComponent
   ],
   imports: [
     BrowserModule, FormsModule,
