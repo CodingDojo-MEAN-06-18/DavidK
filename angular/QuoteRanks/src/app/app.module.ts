@@ -7,6 +7,7 @@ import { QuoteListComponent } from './quote-list/quote-list.component';
 import { FormsModule } from '@angular/forms';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -14,7 +15,7 @@ import { FormsModule } from '@angular/forms';
     QuoteListComponent
   ],
   imports: [
-    BrowserModule, FormsModule,
+    BrowserModule, FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
