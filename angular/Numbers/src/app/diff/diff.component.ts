@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
+
+
 @Component({
   selector: 'app-diff',
   templateUrl: './diff.component.html',
@@ -7,9 +9,15 @@ import { DataService } from '../data.service';
 })
 export class DiffComponent implements OnInit {
 
-  constructor(private _dataService: DataService) { }
+  differential: number;
+
+  constructor( private _dataService: DataService) { }
 
   ngOnInit() {
+  }
+
+  getDifference() {
+    this.differential = this._dataService.getDifference();
   }
 
 }

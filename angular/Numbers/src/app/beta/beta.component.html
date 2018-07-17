@@ -1,3 +1,7 @@
-<p>
-  beta works!
-</p>
+<h2>List of B numbers:</h2>
+<button (click)="pushOne()">Add Num</button>
+<ul>
+  <li *ngFor="let number of numbersB">
+    {{ number }}
+  </li>
+</ul>

@@ -7,9 +7,15 @@ import { DataService } from '../data.service';
 })
 export class BetaComponent implements OnInit {
 
-  constructor(private _dataService: DataService) { }
+  numbersB: number[] = [];
+
+  constructor( private _dataService: DataService) { }
 
   ngOnInit() {
+    this.numbersB = this._dataService.retrieveNumB();
   }
 
+  pushOne() {
+    this._dataService.addNumB(Math.floor((Math.random() * 10) + 1));
+   }
 }

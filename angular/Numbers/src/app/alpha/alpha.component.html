@@ -1,3 +1,7 @@
-<p>
-  alpha works!
-</p>
+<h2>List of A numbers:</h2>
+<button (click)="pushOne()">Add Num</button>
+<ul>
+  <li *ngFor="let number of numbersA">
+    {{ number }}
+  </li>
+</ul>
