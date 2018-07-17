@@ -3,9 +3,23 @@
     <div>
       <!-- {{ userForm.value | json }} -->
       <h1>Add A Quote</h1>
-      <div class="errors" *ngIf="!content.valid && content.touched"> Quote is required </div>
-      <div class="errors" *ngIf="!author.valid && author.touched"> Author is required</div>
-      <textarea rows="4" cols="50" name="content" required minlength="2" maxlength="24" [(ngModel)]='newQuote.content' #content="ngModel"></textarea>
+
+
+      <div class="errors" *ngIf="(content.touched || content.dirty)  && content.errors">
+        <div *ngIf='content.errors.required'>
+          Quote is required
+        </div>
+      </div>
+
+      <div class="errors" *ngIf="(author.touched || author.dirty) && author.errors">
+        <div *ngIf='author.errors.required'>
+          Author is required
+        </div>
+        <div *ngIf='author.errors.minlength'>
+          Author must be {{ author.errors.minlength.requiredLength }} characters
+        </div>
+      </div>
+      <textarea rows="4" cols="50" name="content" required minlength="2" [(ngModel)]='newQuote.content' #content="ngModel"></textarea>
       <!-- {{ content.errors | json }} {{ content.valid | json }} -->
 
     </div>
