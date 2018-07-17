@@ -56,7 +56,7 @@
       <div>
         <label for="">Password</label>
         <input type="text" name="password" minlength="16" [(ngModel)]='user.password' #password="ngModel" required>
-        <div class="errors" *ngIf="(password.touched || email.dirty) && password.errors">
+        <div class="errors" *ngIf="(password.touched) && password.errors">
           <div *ngIf='password.errors.required'>
             Must have a password
           </div>
@@ -71,11 +71,21 @@
         <input type="text" name="confirm" required [(ngModel)]='user.confirm' #confirm="ngModel">
         <div class="errors" *ngIf="confirm.touched && (password.value !== confirm.value)"> Passwords must match </div>
       </div>
+
       <div>
         <label for="">Street Address</label>
         <input type="text" name="address" minlength="4" [(ngModel)]='user.address' #address="ngModel" required>
-        <div class="errors" *ngIf="!address.valid && address.touched"> Street address is required </div>
+        <div class="errors" *ngIf="(address.touched) && address.errors">
+          <div *ngIf='address.errors.required'>
+            must have an address
+          </div>
+          <div *ngIf='address.errors.minlength'>
+            address must be at least {{ address.errors.minlength.requiredLength }} characters.
+          </div>
+        </div>
+
       </div>
+
       <div>
         <label for="">Unit/Apt #</label>
         <input type="text" name="unit" [(ngModel)]='user.unit'>
@@ -83,7 +93,15 @@
       <div>
         <label for="">City</label>
         <input type="text" name="city" [(ngModel)]='user.city' required minlength="2" #city="ngModel">
-        <div class="errors" *ngIf="!city.valid && city.touched"> City is required </div>
+        <div class="errors" *ngIf="(city.touched) && city.errors">
+          <div *ngIf='city.errors.required'>
+            must have a city
+          </div>
+          <div *ngIf='city.errors.minlength'>
+            city must be atleast {{city.errors.minlength.requiredLength }} characters
+          </div>
+
+        </div>
       </div>
       <div>
         <label for="">State</label>
