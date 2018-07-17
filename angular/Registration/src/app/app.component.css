@@ -1,6 +1,6 @@
 .errors {
   color: red;
-  display: inline;
+  display: inline-block;
 }
 
 .registered {

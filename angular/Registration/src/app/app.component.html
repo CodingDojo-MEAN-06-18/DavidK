@@ -46,7 +46,7 @@
         <input type="text" name="email" required minlength="4" maxlength="24" [(ngModel)]='user.email' #email="ngModel">
         <div class="errors" *ngIf="(email.touched || email.dirty) && email.errors">
           <div *ngIf='email.errors.required'>
-            Email must be valid
+            Email is required
           </div>
           <div *ngIf='email.errors.minlength'>
             Email must be at least {{ email.errors.minlength.requiredLength }} characters.
@@ -58,7 +58,7 @@
         <input type="text" name="password" minlength="16" [(ngModel)]='user.password' #password="ngModel" required>
         <div class="errors" *ngIf="(password.touched) && password.errors">
           <div *ngIf='password.errors.required'>
-            Must have a password
+            Password is required
           </div>
           <div *ngIf='password.errors.minlength'>
             Password must be at least {{ password.errors.minlength.requiredLength }} characters.
@@ -77,10 +77,10 @@
         <input type="text" name="address" minlength="4" [(ngModel)]='user.address' #address="ngModel" required>
         <div class="errors" *ngIf="(address.touched) && address.errors">
           <div *ngIf='address.errors.required'>
-            must have an address
+            Address is required
           </div>
           <div *ngIf='address.errors.minlength'>
-            address must be at least {{ address.errors.minlength.requiredLength }} characters.
+            Address must be at least {{ address.errors.minlength.requiredLength }} characters.
           </div>
         </div>
 
@@ -95,10 +95,10 @@
         <input type="text" name="city" [(ngModel)]='user.city' required minlength="2" #city="ngModel">
         <div class="errors" *ngIf="(city.touched) && city.errors">
           <div *ngIf='city.errors.required'>
-            must have a city
+            City is required
           </div>
           <div *ngIf='city.errors.minlength'>
-            city must be atleast {{city.errors.minlength.requiredLength }} characters
+            City must be atleast {{city.errors.minlength.requiredLength }} characters
           </div>
 
         </div>
