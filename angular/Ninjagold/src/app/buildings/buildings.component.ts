@@ -9,9 +9,14 @@ import { DataService } from '../data.service';
 })
 export class BuildingsComponent implements OnInit {
 
+  goldCount;
+
   constructor(private _dataService: DataService) { }
 
+
+
   ngOnInit() {
+    this.goldCount = this._dataService.retrievegoldCount();
   }
 
 }
