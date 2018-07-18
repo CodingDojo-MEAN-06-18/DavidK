@@ -4,19 +4,26 @@ import { Component, OnInit } from '@angular/core';
 import { BOOKS } from '../../data/book-data';
 import { Book } from '../../models/book';
 
+import { TitleizePipe } from '../../titleize.pipe';
+
 @Component({
   selector: 'app-book-list',
   templateUrl: './book-list.component.html',
-  styleUrls: ['./book-list.component.css']
+  styleUrls: ['./book-list.component.css'],
+  providers: [TitleizePipe],
 })
 export class BookListComponent implements OnInit {
   books: Array<Book> = BOOKS;
 
   selectedBook: Book;
 
-  constructor() { }
+  constructor(private _titlize: TitleizePipe) { }
 
   ngOnInit() {
+    this.books.forEach(book => {
+      book.author = this._titlize.transform(book.author);
+    });
+
   }
 
   onSelect(book: Book) {
