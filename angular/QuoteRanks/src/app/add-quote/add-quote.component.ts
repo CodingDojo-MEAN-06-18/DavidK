@@ -20,6 +20,7 @@ export class AddQuoteComponent implements OnInit {
     console.log(formData);
     console.log(this.newQuote);
     this.createQuoteEvent.emit(this.newQuote);
+
     this.newQuote = { content: '', author: ''};
   }
 
