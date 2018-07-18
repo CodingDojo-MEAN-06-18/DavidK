@@ -5,12 +5,13 @@ import { Injectable } from '@angular/core';
 })
 export class DataService {
 
-  numbersB: number[] = [1, 1, 1];
-  numbersA: number[] = [3, 3, 3];
+  numbersB: number[] = [];
+  numbersA: number[] = [];
   aSum = 0;
   bSum = 0;
 
   constructor() { }
+
   retrieveNumA(): number[] {
     return this.numbersA;
   }
@@ -27,16 +28,17 @@ export class DataService {
 
   getDifference(): number {
     for (let i = 0; i < this.numbersA.length; i++) {
-      this.aSum = this.numbersA[i] + this.aSum;
+      this.aSum += this.numbersA[i];
     }
     for (let i = 0; i < this.numbersB.length; i++) {
-      this.bSum = this.numbersB[i] + this.bSum;
+      this.bSum += this.numbersB[i];
     }
-    const differential: number = this.aSum - this.bSum;
+
+    const difference: number = this.aSum - this.bSum;
     this.aSum = 0;
     this.bSum = 0;
-    console.log(differential);
-    return differential;
+    console.log(difference);
+    return difference;
   }
 
 }

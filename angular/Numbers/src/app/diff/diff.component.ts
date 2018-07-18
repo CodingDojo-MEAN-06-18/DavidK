@@ -9,15 +9,15 @@ import { DataService } from '../data.service';
 })
 export class DiffComponent implements OnInit {
 
-  differential: number;
+  difference: number;
 
   constructor( private _dataService: DataService) { }
 
   ngOnInit() {
   }
 
-  getDifference() {
-    this.differential = this._dataService.getDifference();
+  getTheDifference() {
+    this.difference = this._dataService.getDifference();
   }
 
 }

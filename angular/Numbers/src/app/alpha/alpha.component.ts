@@ -16,7 +16,7 @@ export class AlphaComponent implements OnInit {
     this.numbersA = this._dataService.retrieveNumA();
   }
 
-  pushOne() {
+  pushNum() {
     this._dataService.addNumA(Math.floor((Math.random() * 10) + 1));
    }
 }
