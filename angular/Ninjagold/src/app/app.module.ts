@@ -1,8 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
-import { FormsModule } from '@angular/forms';
-
 import { AppComponent } from './app.component';
 import { BuildingsComponent } from './buildings/buildings.component';
 import { GoldlogComponent } from './goldlog/goldlog.component';
@@ -16,8 +13,7 @@ import { DataService } from './data.service';
     GoldlogComponent
   ],
   imports: [
-    BrowserModule,
-    FormsModule
+    BrowserModule
   ],
   providers: [DataService],
   bootstrap: [AppComponent]

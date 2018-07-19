@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output } from '@angular/core';
 import { DataService } from '../data.service';
 
 
@@ -7,16 +7,23 @@ import { DataService } from '../data.service';
   templateUrl: './buildings.component.html',
   styleUrls: ['./buildings.component.css']
 })
-export class BuildingsComponent implements OnInit {
+export class BuildingsComponent implements OnInit{
 
-  goldCount;
+  @Input() start: number;
+  @Input() end: number;
+  @Input() building: string;
+
 
   constructor(private _dataService: DataService) { }
 
-
-
   ngOnInit() {
-    this.goldCount = this._dataService.retrievegoldCount();
   }
+
+  cash(event) {
+    event.preventDefault();
+    this._dataService.cash(this.start, this.end, this.building);
+  }
+
+
 
 }

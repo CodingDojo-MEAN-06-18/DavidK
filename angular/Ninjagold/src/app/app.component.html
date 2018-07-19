@@ -1,5 +1,17 @@
-<h1>Gold Count: {{ goldCount }} !</h1>
+<h1>Gold Count: {{ gold}} !</h1>
 
-<app-buildings></app-buildings>
+<p class="bldRow">
+  <app-buildings [building]="'Farm'" [start]='2' [end]='5'></app-buildings>
+</p>
 
-<app-goldlog></app-goldlog>
+<p class="bldRow">
+  <app-buildings [building]="'Cave'" [start]='5' [end]='10'></app-buildings>
+</p>
+
+<p class="bldRow">
+  <app-buildings [building]="'Casino'" [start]='-100' [end]='100'></app-buildings>
+</p>
+
+<p class="bldRow">
+  <app-buildings [building]="'House'" [start]='7' [end]='15'></app-buildings>
+</p>

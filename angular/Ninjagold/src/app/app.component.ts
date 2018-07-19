@@ -1,4 +1,4 @@
-import { Component , OnInit, OnChanges, DoCheck } from '@angular/core';
+import { Component , OnInit } from '@angular/core';
 import { DataService } from './data.service';
 
 
@@ -7,12 +7,16 @@ import { DataService } from './data.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent  {
+export class AppComponent implements OnInit  {
 
-  goldCount;
+  gold: number = 0;
 
-  constructor(private _dataService: DataService) {
-    this.goldCount = this._dataService.retrievegoldCount();
+  constructor(private _dataService: DataService) { }
+
+  ngOnInit() {
+    this._dataService.goldS.subscribe((gold) => {
+      this.gold += gold;
+    });
   }
 
 

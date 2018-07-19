@@ -8,7 +8,7 @@ import { HumanComponent } from '../human/human.component';
   styleUrls: ['./supersaiyontwo.component.css']
 })
 export class SupersaiyontwoComponent extends HumanComponent implements OnChanges {
-  @Input() power;
+  // @Input() power;
 
 
   ngOnChanges() {

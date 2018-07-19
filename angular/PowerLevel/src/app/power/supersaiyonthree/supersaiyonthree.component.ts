@@ -8,7 +8,7 @@ import { HumanComponent } from '../human/human.component';
   styleUrls: ['./supersaiyonthree.component.css']
 })
 export class SupersaiyonthreeComponent extends HumanComponent implements OnChanges {
-  @Input() power;
+  // @Input() power;
 
 
 
