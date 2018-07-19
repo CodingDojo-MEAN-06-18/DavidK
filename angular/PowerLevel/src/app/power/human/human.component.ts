@@ -8,6 +8,8 @@ import { Component, OnInit, Input } from '@angular/core';
 export class HumanComponent implements OnInit {
   @Input() power;
 
+  className: string = this.constructor.name;
+
   constructor() { }
 
   ngOnInit() {

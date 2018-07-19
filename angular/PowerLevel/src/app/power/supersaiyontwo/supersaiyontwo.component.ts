@@ -1,16 +1,15 @@
-import { Component, OnInit, Input, OnChanges  } from '@angular/core';
+import { Component, Input, OnChanges  } from '@angular/core';
+
+import { HumanComponent } from '../human/human.component';
 
 @Component({
   selector: 'app-supersaiyontwo',
   templateUrl: './supersaiyontwo.component.html',
   styleUrls: ['./supersaiyontwo.component.css']
 })
-export class SupersaiyontwoComponent implements OnInit, OnChanges {
+export class SupersaiyontwoComponent extends HumanComponent implements OnChanges {
   @Input() power;
-  constructor() { }
 
-  ngOnInit() {
-  }
 
   ngOnChanges() {
     this.power = this.power * 150;

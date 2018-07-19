@@ -11,13 +11,13 @@ export class PowerComponent implements OnInit {
 
   power: number;
 
-
+  ngOnInit() {
+    this.power = 10;
+  }
 
 
   constructor() { }
 
-  ngOnInit() {
-    this.power = 10;
-  }
+
 
 }
