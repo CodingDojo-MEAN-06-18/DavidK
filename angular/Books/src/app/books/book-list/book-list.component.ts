@@ -29,13 +29,13 @@ export class BookListComponent implements OnInit {
   onSelect(book: Book) {
     console.log('selecting book', book);
 
-    this.selectedBook = this.selectedBook === book ? null : book;
+    // this.selectedBook = this.selectedBook === book ? null : book;
 
-    // if (this.selectedBook !== book) {
-    //   this.selectedBook = book;
-    // } else {
-    //   this.selectedBook = null;
-    // }
+    if (this.selectedBook === book) {
+      this.selectedBook = null;
+    } else {
+      this.selectedBook = book;
+    }
   }
 
   onCreate(book: Book) {

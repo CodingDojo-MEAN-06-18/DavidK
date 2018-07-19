@@ -6,9 +6,7 @@ import { Book } from '../../models/book';
   styleUrls: ['./book-detail.component.css']
 })
 export class BookDetailComponent implements OnInit {
-  @Input()
-  book: Book;
-
+  @Input() book: Book;
 
   constructor() { }
 
