@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { DataService } from '../data.service';
 
 @Component({
@@ -8,9 +8,19 @@ import { DataService } from '../data.service';
 })
 export class GoldlogComponent implements OnInit {
 
+  displayLogs: string[] = [];
+
   constructor(private _dataService: DataService) { }
 
   ngOnInit() {
+    this._dataService.logS.subscribe((displayLogs) => {
+      this.displayLogs = [displayLogs, ... this.displayLogs];
+    });
+
   }
+
+
+
+
 
 }

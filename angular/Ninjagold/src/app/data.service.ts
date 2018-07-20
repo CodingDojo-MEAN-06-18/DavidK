@@ -14,13 +14,12 @@ export class DataService {
 
   constructor() { }
 
-  cash(start: number, end: number, building: string) {
+  cash(min: number, max: number, building: string) {
 
-    const gold = Math.floor(Math.random() * (end - start + 1) + start);
+    const gold = Math.floor(Math.random() * (max - min + 1) + min);
     const firstWord = gold > 0 ? 'Made' : 'lost';
     this.logS.next(`${firstWord} ${gold} gold from the ${building}`);
     this.goldS.next(gold);
    }
-
 
 }

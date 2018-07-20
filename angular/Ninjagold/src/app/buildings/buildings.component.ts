@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { DataService } from '../data.service';
 
 
@@ -7,10 +7,10 @@ import { DataService } from '../data.service';
   templateUrl: './buildings.component.html',
   styleUrls: ['./buildings.component.css']
 })
-export class BuildingsComponent implements OnInit{
+export class BuildingsComponent implements OnInit {
 
-  @Input() start: number;
-  @Input() end: number;
+  @Input() min: number;
+  @Input() max: number;
   @Input() building: string;
 
 
@@ -20,8 +20,7 @@ export class BuildingsComponent implements OnInit{
   }
 
   cash(event) {
-    event.preventDefault();
-    this._dataService.cash(this.start, this.end, this.building);
+    this._dataService.cash(this.min, this.max, this.building);
   }
 
 
