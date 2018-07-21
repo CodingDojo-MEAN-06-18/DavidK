@@ -8,20 +8,20 @@ import { Title } from '@angular/platform-browser';
 @Injectable()
 
 export class TitleizePipe implements PipeTransform {
-  static skipWords = ['of', 'the', 'in', 'a'];
+  static skipWords = ['of', 'the', 'in'];
 
-  transform(value: string, args?: string[] | boolean) {
+  transform(title: string, args?: string[] | boolean) {
 
-    if (typeof value !== 'string') {
-      return value;
+    if (typeof title !== 'string') {
+      return title;
     }
 
     const skipWords = Array.isArray(args) ? args : TitleizePipe.skipWords;
-    const processSkipWords = args !== false;
+    const processSkipwords = args !== false;
 
-    return value.replace(/\w[^-\s]+/g, (word, index: number) => {
+    return title.replace(/\w[^-\s]*/g, (word, index: number) => {
 
-      if ( processSkipWords && index && skipWords.includes(word.toLowerCase()) ) {
+      if ( processSkipwords && index && skipWords.includes(word.toLowerCase()) ) {
         return word.toLowerCase();
        }
 
