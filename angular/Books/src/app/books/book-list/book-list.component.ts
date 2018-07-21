@@ -17,6 +17,7 @@ export class BookListComponent implements OnInit {
 
   selectedBook: Book;
 
+  filter: Book = new Book(false);
   constructor(private _titlize: TitleizePipe) { }
 
   ngOnInit() {
@@ -41,6 +42,11 @@ export class BookListComponent implements OnInit {
   onCreate(book: Book) {
     console.log('creating book', book);
     this.books.push(book);
+  }
+
+  clearFilter(): void {
+    console.log('clearing filter');
+    this.filter = new Book(false);
   }
 
 }

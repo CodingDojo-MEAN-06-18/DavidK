@@ -7,6 +7,7 @@ import * as fromBooks from './books';
 
 
 import { TitleizePipe } from './titleize.pipe';
+import { SearchPipe } from './search.pipe';
 
 TitleizePipe.skipWords = ['of'];
 
@@ -16,7 +17,8 @@ TitleizePipe.skipWords = ['of'];
   declarations: [
     AppComponent,
     ...fromBooks.components,
-    TitleizePipe
+    TitleizePipe,
+    SearchPipe
   ],
   imports: [
     BrowserModule, FormsModule,
