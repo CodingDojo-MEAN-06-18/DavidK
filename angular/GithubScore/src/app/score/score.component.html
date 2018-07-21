@@ -1,0 +1,18 @@
+<h1>Github Score</h1>
+
+<form (submit)="OnSubmit($event, gitForm)" #gitForm="ngForm">
+  <label for="gitName">
+    <span>Github Username: </span>
+  </label>
+
+  <input type="text" name="gitName" placeholder="github_username" required [(ngModel)]='gitName'>
+
+  <input type="submit" [disabled]="!gitForm.valid" value="Calculate my Github Score">
+</form>
+
+<div>
+  <h1>Your Score:
+    <span>{{score}}</span>
+  </h1>
+  <!-- <h2 *ngIf="this.comment">{{comment}}</h2> -->
+</div>
