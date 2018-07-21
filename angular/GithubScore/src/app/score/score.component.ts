@@ -15,7 +15,7 @@ export class ScoreComponent implements OnInit {
 
   gitName: string;
   user: User;
-  score: number;
+  score = 10;
   comment: string;
   found: boolean;
 
