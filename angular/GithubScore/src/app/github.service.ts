@@ -1,8 +1,5 @@
-import { Observable} from 'rxjs';
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { catchError } from 'rxjs/operators';
-
+import { HttpClient } from '@angular/common/http';
 
 
 @Injectable({
@@ -10,19 +7,8 @@ import { catchError } from 'rxjs/operators';
 })
 
 export class GithubService {
-
-
   constructor(private _http: HttpClient) { }
-
-  private base = 'https://api.github.com/users/';
-
-  getUser(name): Observable<object> {
-    return this._http.get<object>(this.base + name);
-
-  }
-
-  errorHandler(error: HttpErrorResponse) {
-
-  }
-
+  getUser = function (username) {
+    return this._http.get(`https://api.github.com/users/${username}`);
+  };
 }
