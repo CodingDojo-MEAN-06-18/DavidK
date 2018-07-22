@@ -9,7 +9,7 @@ import { DataService } from './data.service';
 })
 export class AppComponent implements OnInit  {
 
-  gold: number = 10;
+  gold: number = 0;
 
   constructor(private _dataService: DataService) { }
 
