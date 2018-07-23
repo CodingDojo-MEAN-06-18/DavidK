@@ -19,11 +19,6 @@
         <label for="">year</label>
         <input type="text" name="year" [(ngModel)]='book.year'>
       </div>
-      <div>
-        <label for="">publisher</label>
-        <input type="text" name="publisher" [(ngModel)]='book.publisher'>
-      </div>
-
       <button *ngIf='bookForm.valid'>Submit</button>
     </form>
   </fieldset>

@@ -4,7 +4,7 @@ export class Book {
   author: string;
   pages: number;
   year: number;
-  publisher: string;
+
 
   constructor(createId = true) {
     if (createId) {

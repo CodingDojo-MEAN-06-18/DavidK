@@ -21,10 +21,6 @@
           <button *ngIf='filter.year' (click)='filter.year = null'>x</button>
         </th>
         <th>
-          <input type="text" placeholder='publisher' [(ngModel)]='filter.publisher'>
-          <button *ngIf='filter.publisher' (click)='filter.publisher = null'>x</button>
-        </th>
-        <th>
           Actions
           <button (click)='clearFilter()' *ngIf='filter.id || filter.title || filter.author || filter.year || filter.publisher'>x</button>
         </th>
@@ -37,7 +33,9 @@
         <td> {{book.title | titleize:['the'] }} </td>
         <td> {{book.author | titleize }} </td>
         <td> {{book.year }} </td>
-        <td> Future Actions </td>
+        <td (click)='onClick($event)'>
+          <button (click)='onDelete()'> Delete </button>
+        </td>
       </tr>
     </tbody>
   </table>

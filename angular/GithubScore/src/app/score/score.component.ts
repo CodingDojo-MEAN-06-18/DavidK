@@ -13,7 +13,7 @@ export class ScoreComponent implements OnInit {
   username: '';
   score = 0;
   errorflag = false;
-  location: '';
+
 
   constructor(private githubService: GithubService) { }
   ngOnInit() {

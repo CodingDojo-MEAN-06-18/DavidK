@@ -2,14 +2,17 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
-
-import * as fromBooks from './books';
-
+import { HttpClientModule } from '@angular/common/http';
 
 import { TitleizePipe } from './titleize.pipe';
 import { SearchPipe } from './search.pipe';
 
-TitleizePipe.skipWords = ['of'];
+// easy way to manage components
+import * as fromBooks from './books';
+import * as fromServices from './services';
+
+
+// TitleizePipe.skipWords = ['of'];
 
 
 
@@ -21,9 +24,9 @@ TitleizePipe.skipWords = ['of'];
     SearchPipe
   ],
   imports: [
-    BrowserModule, FormsModule,
+    BrowserModule, FormsModule, HttpClientModule,
   ],
-  providers: [],
+  providers: [...fromServices.services],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
