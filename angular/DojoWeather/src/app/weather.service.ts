@@ -8,7 +8,6 @@ import { Weather } from './weather';
 })
 export class WeatherService {
 
-
   constructor(private _http: HttpClient) { }
 
   getWeather(location: string) {

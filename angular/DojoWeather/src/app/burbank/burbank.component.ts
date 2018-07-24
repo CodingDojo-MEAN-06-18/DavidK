@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { WeatherService } from '../weather.service';
-
+import { Weather } from '../weather';
 
 @Component({
   selector: 'app-burbank',
@@ -8,10 +8,15 @@ import { WeatherService } from '../weather.service';
   styleUrls: ['./burbank.component.css']
 })
 export class BurbankComponent implements OnInit {
-
+  weather: Weather;
   constructor(private _weatherService: WeatherService) { }
 
   ngOnInit() {
+    this._weatherService.getWeather('burbank')
+      .subscribe(weather => {
+        console.log(weather);
+        this.weather = weather;
+      });
   }
 
 }
