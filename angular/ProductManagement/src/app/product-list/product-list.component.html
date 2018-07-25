@@ -1,0 +1,14 @@
+<h3> Products List</h3>
+
+<div id="main">
+  <div *ngFor="let product of products">
+    <img *ngIf="product.imageUrl" [src]="product.imageUrl">
+    <h3 *ngIf="!product.imageUrl">No Image Available.</h3>
+    <p>{{ product.title }}</p>
+    <p> {{ product.price }}</p>
+    <button class="edit">edit</button>
+    <button>Delete</button>
+  </div>
+
+
+</div>
