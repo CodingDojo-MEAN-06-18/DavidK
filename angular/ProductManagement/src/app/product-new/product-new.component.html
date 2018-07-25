@@ -3,7 +3,7 @@
   <fieldset>
     <form (submit)='onSubmit($event, userForm)' #userForm='ngForm'>
       <div>
-        <label for="">Title</label>
+        <label for=""> Title </label>
         <input type="text" name="title" required minlength="4" [(ngModel)]='product.title' #title="ngModel"> {{ title.errors | json }} {{ title.valid | json }}
 
         <div class="errors" *ngIf="(title.touched || title.dirty) &&  title .errors">

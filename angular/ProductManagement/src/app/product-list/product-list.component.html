@@ -1,7 +1,9 @@
-<h3> Products List</h3>
+<h1> Products List</h1>
 
 <div id="main">
-  <div *ngFor="let product of products">
+
+
+  <div *ngFor="let product of products" class="products">
     <img *ngIf="product.imageUrl" [src]="product.imageUrl">
     <h3 *ngIf="!product.imageUrl">No Image Available.</h3>
     <p>{{ product.title }}</p>

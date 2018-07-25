@@ -1,3 +1,19 @@
 img {
   width: 200px;
 }
+#main {
+  margin: 0 auto;
+  width: 600px;
+  background-color: pink;
+  height: 500px;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+}
+.products {
+  color: blue;
+  display: inline-block;
+  margin-left: 30px;
+}
