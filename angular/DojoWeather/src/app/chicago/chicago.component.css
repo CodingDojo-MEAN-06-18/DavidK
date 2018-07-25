@@ -1,0 +1,18 @@
+
+.main {
+  width: 650px;
+  color: #0984e3;
+}
+
+h2 {
+  text-align: center;
+}
+.content  {
+  display: inline-block;
+  vertical-align: top;
+}
+img {
+  display: inline-block;
+  width: 320px;
+  margin-left: 100px;
+}
