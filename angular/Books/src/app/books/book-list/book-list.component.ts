@@ -3,7 +3,7 @@ import { Subscription } from 'rxjs';
 import { Book } from '../../models/book';
 import { TitleizePipe } from '../../titleize.pipe';
 import { BookService } from '../../services';
-
+import { HttpClient } from '@angular/common/http';
 @Component({
   selector: 'app-book-list',
   templateUrl: './book-list.component.html',
@@ -25,7 +25,7 @@ export class BookListComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     // this.sub = this.bookService = null;
-    console.log(this.bookService);
+
 
     this.bookService.getBooks()
       .subscribe(books => {
