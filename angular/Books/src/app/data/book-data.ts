@@ -25,7 +25,7 @@ export const BOOKS: Book[] = [
   {
     id: randomId(),
     title: 'a game of thrones',
-    author: 'george r r martin',
+    author: 'george r  martin',
     year: 1996,
     pages: 3330
   },

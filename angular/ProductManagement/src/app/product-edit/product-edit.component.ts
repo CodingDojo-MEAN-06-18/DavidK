@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ProductService } from '../product.service';
+import { Product } from '../product';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-product-edit',
@@ -6,10 +9,38 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./product-edit.component.css']
 })
 export class ProductEditComponent implements OnInit {
+  products: Array<Product>;
+  product: Product;
 
-  constructor() { }
+  constructor(
+  private _productService: ProductService,
+  private _route: ActivatedRoute,
+  private _router: Router
+  ) {
+    this._productService.productsObservable.subscribe((products) => {
+      this.products = products;
+    });
+
+    this._route.params.subscribe(param => {
+      for (let idx = 0; idx < this.products.length; idx++) {
+        if (this.products[idx].id === param.id) {
+          this.product = this.products[idx];
+          break;
+        }
+      }
+    });
+
+  }
+
 
   ngOnInit() {
   }
+
+  update() {
+    this._productService.updateProducts(this.products);
+    this._router.navigate(['/products']);
+  }
+
+
 
 }

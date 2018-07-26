@@ -12,7 +12,7 @@ import { Book } from '../models/book';
 })
 
 export class BookService {
-  private base = 'https://59498bce6df0011102cfc.mockapi.io/books';
+  private base = 'https://59498bce6d49df0011102cfc.mockapi.io/books';
 
   constructor(private http: HttpClient) { }
 
