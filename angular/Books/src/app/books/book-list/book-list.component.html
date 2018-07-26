@@ -1,6 +1,9 @@
 <app-book-new (newBook)='onCreate($event)'></app-book-new>
 
 <section>
+  <div *ngIf='errorMessage'>
+    <p>{{errorMessage}}</p>
+  </div>
   <table class="table table-striped">
     <thead>
       <tr>
@@ -33,8 +36,8 @@
         <td> {{book.title | titleize:['the'] }} </td>
         <td> {{book.author | titleize }} </td>
         <td> {{book.year }} </td>
-        <td (click)='onClick($event)'>
-          <button (click)='onDelete()'> Delete </button>
+        <td (click)='onEvent($event)'>
+          <button (click)='onDelete(book.id)'> Delete </button>
         </td>
       </tr>
     </tbody>

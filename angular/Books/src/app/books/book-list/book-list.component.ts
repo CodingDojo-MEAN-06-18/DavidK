@@ -1,11 +1,8 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { Book } from '../../models/book';
-
 import { TitleizePipe } from '../../titleize.pipe';
-
 import { BookService } from '../../services';
-
 
 @Component({
   selector: 'app-book-list',
@@ -17,6 +14,7 @@ export class BookListComponent implements OnInit, OnDestroy {
   books: Array<Book> = [];
   sub: Subscription;
   selectedBook: Book;
+  errorMessage: string;
 
   filter: Book = new Book(false);
 
@@ -26,7 +24,9 @@ export class BookListComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit() {
-    this.sub = this.bookService = null;
+    // this.sub = this.bookService = null;
+    console.log(this.bookService);
+
     this.bookService.getBooks()
       .subscribe(books => {
         this.books = books;
@@ -62,19 +62,23 @@ export class BookListComponent implements OnInit, OnDestroy {
     this.filter = new Book(false);
   }
 
-  onClick(event: Event) {
-    console.log('stopping prop');
-    event.stopPropagation();
-  }
-
-  onDelete(bookToDelete: Book) {
+  onDelete(id: number) {
     console.log('deleting book');
-    this.bookService.deleteBook(bookToDelete)
+    this.bookService.deleteBook(id)
       .subscribe(deletedBook => {
         console.log('deleted book', deletedBook);
-
         this.books = this.books.filter(book => book.id !== deletedBook.id);
-      });
+      },
+      error => {
+        console.log('error', error);
+        this.errorMessage = error.statusText;
+      }
+    );
+  }
+
+  onEvent(event: Event) {
+    console.log('stopping prop');
+    event.stopPropagation();
   }
 
 }

@@ -10,21 +10,21 @@ import { Book } from '../models/book';
 @Injectable({
   providedIn: 'root'
 })
+
 export class BookService {
-  private base = 'http://59498bce6df0011102cfc.mockapi.io/books';
+  private base = 'https://59498bce6df0011102cfc.mockapi.io/books';
 
   constructor(private http: HttpClient) { }
 
   getBooks(): Observable<Book[]> {
     return this.http.get<Book[]>(this.base);
-
   }
 
   createBook(book: Book): Observable<Book> {
     return this.http.post<Book>(this.base, book);
   }
 
-  deleteBook(book: Book): Observable<Book> {
-    return this.http.delete<Book>(`${this.base}/${book.id}`);
+  deleteBook(id: number): Observable<Book> {
+    return this.http.delete<Book>(`${this.base}/${id}`);
   }
 }

@@ -16,6 +16,10 @@ export class BookNewComponent implements OnInit, OnDestroy {
 
   @Output() newBook = new EventEmitter<Book>();
 
+  constructor(private bookService: BookService) { }
+
+  ngOnInit() {
+  }
 
   onSubmit(event: Event, form: NgForm) {
     event.preventDefault();
@@ -28,20 +32,13 @@ export class BookNewComponent implements OnInit, OnDestroy {
         this.book = new Book();
         form.reset();
       });
-
-
     // this.newBook.emit(this.book);
-
-
-
-
     // console.log('books', this.books);
   }
 
-  constructor(private readonly bookService: BookService) { }
 
-  ngOnInit() {
-  }
+
+
 
   ngOnDestroy() {
     this.sub.unsubscribe();

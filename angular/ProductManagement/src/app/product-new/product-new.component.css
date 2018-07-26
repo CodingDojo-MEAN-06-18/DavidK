@@ -5,3 +5,9 @@
   height: 500px;
   padding: 20px;
 }
+
+.errors {
+  color: red;
+  display: inline-block;
+  margin-left: 10px;
+}
