@@ -23,7 +23,8 @@ import { ProductNewComponent } from './product-new/product-new.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+
   ],
   providers: [ProductService],
   bootstrap: [AppComponent]

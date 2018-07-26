@@ -1,7 +1,7 @@
 <div id="main">
   <h1>Edit Product</h1>
   <fieldset>
-    <form (submit)='onSubmit()' #userForm='ngForm'>
+    <form (submit)='create()' #userForm='ngForm'>
       <div>
         <label for=""> Title </label>
         <input type="text" name="title" required minlength="4" [(ngModel)]='newProduct.title' #title="ngModel">

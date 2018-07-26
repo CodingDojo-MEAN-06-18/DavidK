@@ -13,7 +13,8 @@ export class AppComponent {
 
   products = [
     new Product(1, 'DSLR Camera', 149.99, '../../assets/camera.jpg'),
-    new Product(2, 'iLaptop', 1299.99, '../../assets/laptop.jpg')
+    new Product(2, 'iLaptop', 1299.99, '../../assets/laptop.jpg'),
+    new Product(3,  'iPhone', 1029,  )
   ];
 
   constructor(private _productService: ProductService) {
