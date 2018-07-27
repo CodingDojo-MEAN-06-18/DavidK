@@ -8,8 +8,8 @@
     <thead>
       <tr>
         <th>
-          <input type="text" placeholder='id' [(ngModel)]='filter.id'>
-          <button *ngIf='filter.id' (click)='filter.id = null'>x</button>
+          <input type="text" placeholder='id' [(ngModel)]='filter._id'>
+          <button *ngIf='filter._id' (click)='filter.id = null'>x</button>
         </th>
         <th>
           <input type="text" placeholder='title' [(ngModel)]='filter.title'>
@@ -25,14 +25,14 @@
         </th>
         <th>
           Actions
-          <button (click)='clearFilter()' *ngIf='filter.id || filter.title || filter.author || filter.year || filter.publisher'>x</button>
+          <button (click)='clearFilter()' *ngIf='filter._id || filter.title || filter.author || filter.year || filter.publisher'>x</button>
         </th>
       </tr>
     </thead>
 
     <tbody>
       <tr *ngFor='let book of books | search:filter' (click)='onSelect(book)'>
-        <td> {{book.id }} </td>
+        <td> {{book._id }} </td>
         <td> {{book.title | titleize:['the'] }} </td>
         <td> {{book.author | titleize }} </td>
         <td> {{book.year }} </td>

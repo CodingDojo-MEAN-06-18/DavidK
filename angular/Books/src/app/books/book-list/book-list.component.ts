@@ -62,12 +62,12 @@ export class BookListComponent implements OnInit, OnDestroy {
     this.filter = new Book(false);
   }
 
-  onDelete(id: number) {
+  onDelete(_id: number) {
     console.log('deleting book');
-    this.bookService.deleteBook(id)
+    this.bookService.deleteBook(_id)
       .subscribe(deletedBook => {
         console.log('deleted book', deletedBook);
-        this.books = this.books.filter(book => book.id !== deletedBook.id);
+        this.books = this.books.filter(book => book._id === deletedBook._id);
       },
       error => {
         console.log('error', error);
