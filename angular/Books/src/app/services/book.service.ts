@@ -22,6 +22,10 @@ export class BookService {
     return this.http.get<Book[]>(this.base);
   }
 
+  getBook(_id: string): Observable<Book> {
+    return this.http.get<Book>(`${this.base}/${_id}`);
+  }
+
   createBook(book: Book): Observable<Book> {
     return this.http.post<Book>(this.base, book);
   }

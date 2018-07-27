@@ -9,5 +9,5 @@ module.exports = router
   .post('/', bookController.create)
   .get('/:book_id', bookController.show)
   .put('/:book_id', bookController.update)
-  .delete('/:book.id', bookController.destroy);
+  .delete('/:book_id', bookController.destroy);
 
