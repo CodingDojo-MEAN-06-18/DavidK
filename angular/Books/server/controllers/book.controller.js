@@ -5,7 +5,7 @@ module.exports = {
   //get all of resource
   index(request, response) {
     Book.find({})
-      .then(book => response.json(books))
+      .then(book => response.json(book))
       .catch(console.log)
   },
 

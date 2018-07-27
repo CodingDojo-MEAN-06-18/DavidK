@@ -26,7 +26,7 @@ export class BookService {
     return this.http.post<Book>(this.base, book);
   }
 
-  deleteBook(id: number): Observable<Book> {
-    return this.http.delete<Book>(`${this.base}/${id}`);
+  deleteBook(_id: number): Observable<Book> {
+    return this.http.delete<Book>(`${this.base}/${_id}`);
   }
 }

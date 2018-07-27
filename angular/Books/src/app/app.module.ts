@@ -12,6 +12,8 @@ import * as fromBooks from './books';
 import * as fromServices from './services';
 
 
+import { BookService } from './services';
+
 // TitleizePipe.skipWords = ['of'];
 
 
@@ -26,7 +28,7 @@ import * as fromServices from './services';
   imports: [
     BrowserModule, FormsModule, HttpClientModule,
   ],
-  providers: [...fromServices.services],
+  providers: [...fromServices.services, BookService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

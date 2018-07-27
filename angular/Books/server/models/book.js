@@ -4,7 +4,7 @@ const { Schema } = mongoose;
 const bookSchema = new Schema({
   title: {
     type: String,
-    required: [true, 'proviate a book title'],
+    required: [true, 'provide a book title'],
     trim: true
 
   },

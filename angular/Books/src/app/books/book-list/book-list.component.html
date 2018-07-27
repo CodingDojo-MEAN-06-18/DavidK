@@ -37,7 +37,7 @@
         <td> {{book.author | titleize }} </td>
         <td> {{book.year }} </td>
         <td (click)='onEvent($event)'>
-          <button (click)='onDelete(book.id)'> Delete </button>
+          <button (click)='onDelete(book._id)'> Delete </button>
         </td>
       </tr>
     </tbody>

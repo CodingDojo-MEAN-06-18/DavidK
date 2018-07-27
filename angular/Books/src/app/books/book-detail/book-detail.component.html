@@ -2,11 +2,11 @@
   <fieldset>
     <legend>Selected Book </legend>
     <div>
-      <p>ID: {{ book._id }}</p>
-      <p>Title: {{ book.title }}</p>
-      <p>Author: {{ book.author }}</p>
-      <p>Pages: {{ book.pages }}</p>
-      <p>Year: {{ book.year }}</p>
+      <p>ID: {{ book?._id }}</p>
+      <p>Title: {{ book?.title }}</p>
+      <p>Author: {{ book?.author }}</p>
+      <p>Pages: {{ book?.pages }}</p>
+      <p>Year: {{ book?.year }}</p>
     </div>
   </fieldset>
 </section>
