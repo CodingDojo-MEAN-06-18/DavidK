@@ -6,7 +6,6 @@ const bookSchema = new Schema({
     type: String,
     required: [true, 'provide a book title'],
     trim: true
-
   },
   pages: {
     type: Number,

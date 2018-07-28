@@ -1,10 +1,10 @@
 const mongoose = require('mongoose');
 const path = require('path');
 const fs = require('fs');
-const reg = new RegExp('\\.js$', 'i');
 
-const modelsPath = path.resolve('server', 'models');
-// const modelsPath = path.join(__dirname, '../models');
+const reg = new RegExp('\\.js$', 'i');
+// const modelsPath = path.resolve('server', 'models');
+const modelsPath = path.join(__dirname, '../models');
 
 mongoose.connect('mongodb://localhost:27017/books');
 mongoose.connection.on('connected', () => console.log('connected'));

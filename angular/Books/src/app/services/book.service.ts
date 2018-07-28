@@ -11,8 +11,9 @@ import { Book } from '../models/book';
 })
 
 export class BookService {
+   // hooking up to our database not our mockapi
   // private base = 'https://59498bce6d49df0011102cfc.mockapi.io/books';
-  // hooking up to our database not our mockapi
+
   private base = '/api/books';
 
   constructor(private http: HttpClient) { }
