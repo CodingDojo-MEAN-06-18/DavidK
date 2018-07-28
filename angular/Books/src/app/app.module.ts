@@ -11,8 +11,11 @@ import { SearchPipe } from './search.pipe';
 import * as fromBooks from './books';
 import * as fromServices from './services';
 
-
+import { BookResolve } from './resolvers';
 import { BookService } from './services';
+
+import { AppRoutingModule } from './app-routing.module';
+import { NavComponent } from './nav/nav.component';
 
 // TitleizePipe.skipWords = ['of'];
 
@@ -23,12 +26,13 @@ import { BookService } from './services';
     AppComponent,
     ...fromBooks.components,
     TitleizePipe,
-    SearchPipe
+    SearchPipe,
+    NavComponent
   ],
   imports: [
-    BrowserModule, FormsModule, HttpClientModule,
+    BrowserModule, FormsModule, HttpClientModule, AppRoutingModule
   ],
-  providers: [...fromServices.services, BookService],
+  providers: [...fromServices.services, BookService, BookResolve],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

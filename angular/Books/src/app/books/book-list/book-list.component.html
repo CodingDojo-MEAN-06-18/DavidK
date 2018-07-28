@@ -1,4 +1,4 @@
-<app-book-new (newBook)='onCreate($event)'></app-book-new>
+<!-- <app-book-new (newBook)='onCreate($event)'></app-book-new> -->
 
 <section>
   <div *ngIf='errorMessage'>
@@ -31,7 +31,7 @@
     </thead>
 
     <tbody>
-      <tr *ngFor='let book of books | search:filter' (click)='onSelect(book)'>
+      <tr *ngFor='let book of books | search:filter' (click)='onSelect(book)' [routerLink]="book._id">
         <td> {{book._id }} </td>
         <td> {{book.title | titleize:['the'] }} </td>
         <td> {{book.author | titleize }} </td>
@@ -45,4 +45,4 @@
 </section>
 
 <!-- bind to parent from child -->
-<app-book-detail [book]='selectedBook'></app-book-detail>
+<!-- <app-book-detail [book]='selectedBook'></app-book-detail> -->

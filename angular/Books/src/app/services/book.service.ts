@@ -4,7 +4,6 @@ import { of } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 
 import { BOOKS } from '../data/book-data';
-
 import { Book } from '../models/book';
 
 @Injectable({
