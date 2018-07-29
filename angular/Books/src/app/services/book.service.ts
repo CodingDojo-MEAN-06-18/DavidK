@@ -30,7 +30,7 @@ export class BookService {
     return this.http.post<Book>(this.base, book);
   }
 
-  deleteBook(_id: number): Observable<Book> {
+  deleteBook(_id: string): Observable<Book> {
     return this.http.delete<Book>(`${this.base}/${_id}`);
   }
 }
