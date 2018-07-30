@@ -22,15 +22,15 @@ export class BookService {
     return this.http.get<Book[]>(this.base);
   }
 
-  getBook(_id: string): Observable<Book> {
-    return this.http.get<Book>(`${this.base}/${_id}`);
+  getBook(id: string): Observable<Book> {
+    return this.http.get<Book>(`${this.base}/${id}`);
   }
 
   createBook(book: Book): Observable<Book> {
     return this.http.post<Book>(this.base, book);
   }
 
-  deleteBook(_id: string): Observable<Book> {
-    return this.http.delete<Book>(`${this.base}/${_id}`);
+  deleteBook(id: string): Observable<Book> {
+    return this.http.delete<Book>(`${this.base}/${id}`);
   }
 }

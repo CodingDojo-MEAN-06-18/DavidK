@@ -20,7 +20,16 @@ export class BookDetailComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.book = this.route.snapshot.data.book;
+
+    this.route.paramMap
+    .pipe(
+      switchMap(params => this.bookService.getBook(params.get('book_id')))
+    )
+      .subscribe(book => (this.book = book));
+
+    // this.book = this.route.snapshot.data.book;
+
+
     // this.route.paramMap
     // .pipe(
     //   switchMap(params => this.bookService.getBook(params.get('book_id'))

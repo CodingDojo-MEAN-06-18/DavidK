@@ -1,5 +1,7 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Subscription } from 'rxjs';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Subscription, Observable } from 'rxjs';
+import { tap } from 'rxjs/operators';
+
 import { Book } from '../../models/book';
 import { TitleizePipe } from '../../titleize.pipe';
 import { BookService } from '../../services';
@@ -9,17 +11,20 @@ import { HttpClient } from '@angular/common/http';
   templateUrl: './book-list.component.html',
   styleUrls: ['./book-list.component.css'],
   providers: [TitleizePipe],
+
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class BookListComponent implements OnInit, OnDestroy {
+
+export class BookListComponent implements OnInit {
   books: Array<Book> = [];
-  sub: Subscription;
+  books$: Observable<Book[]>;
   selectedBook: Book;
   errorMessage: string;
 
-  filter: Book = new Book(false);
+
 
   constructor(
-    private _titlize: TitleizePipe,
+    private titlize: TitleizePipe,
     private bookService: BookService,
   ) { }
 
@@ -27,29 +32,25 @@ export class BookListComponent implements OnInit, OnDestroy {
     // this.sub = this.bookService = null;
 
 
-    this.bookService.getBooks()
-      .subscribe(books => {
-        this.books = books;
-        this.books.forEach(book => {
-          book.author = this._titlize.transform(book.author);
+    this.books$ = this.bookService.getBooks().pipe(
+      tap(books => {
+        books.forEach(book => {
+          book.author = this.titlize.transform(book.author);
         });
-    });
-  }
-
-  ngOnDestroy() {
-    this.sub.unsubscribe();
+      })
+    );
   }
 
   onSelect(book: Book) {
     console.log('selecting book', book);
 
-    // this.selectedBook = this.selectedBook === book ? null : book;
+    this.selectedBook = this.selectedBook === book ? null : book;
 
-    if (this.selectedBook === book) {
-      this.selectedBook = null;
-    } else {
-      this.selectedBook = book;
-    }
+    // if (this.selectedBook === book) {
+    //   this.selectedBook = null;
+    // } else {
+    //   this.selectedBook = book;
+    // }
   }
 
   onCreate(book: Book) {
@@ -57,18 +58,18 @@ export class BookListComponent implements OnInit, OnDestroy {
     this.books.push(book);
   }
 
-  clearFilter(): void {
-    console.log('clearing filter');
-    this.filter = new Book(false);
-  }
+  // clearFilter(): void {
+  //   console.log('clearing filter');
+  //   this.filter = new Book(false);
+  // }
 
-  onDelete(_id: string) {
-    console.log('_id');
-    this.bookService.deleteBook(_id)
+  onDelete(id: string) {
+    console.log('calling on delete', id);
+    this.bookService.deleteBook(id)
       .subscribe(
         updatedBook => {
-        console.log('deleted book', updatedBook);
-        this.books = this.books.filter(book => book._id !== updatedBook._id);
+        console.log('things are happening', id);
+        this.books = this.books.filter(book => book._id !== id);
       },
       error => {
         console.log('error', error);

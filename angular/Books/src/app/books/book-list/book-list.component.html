@@ -31,7 +31,7 @@
     </thead>
 
     <tbody>
-      <tr *ngFor='let book of books | search:filter' (click)='onSelect(book)' [routerLink]="book._id">
+      <tr *ngFor='let book of books$ | async' (click)='onSelect(book)' [routerLink]="book._id">
         <td> {{book._id }} </td>
         <td> {{book.title | titleize:['the'] }} </td>
         <td> {{book.author | titleize }} </td>

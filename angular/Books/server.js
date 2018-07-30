@@ -13,7 +13,9 @@ app
   .use(bodyParser.urlencoded({ extended: true }))
   .use(bodyParser.json())
   .use(logger('dev'))
+
   .use(express.static(path.join(__dirname, 'dist')))
+  // /api/books
   .use('/api', require('./server/routes'))
   .use(require('./server/routes/catch-all.route'));
 

@@ -43,16 +43,10 @@ export class BookNewComponent implements OnInit, OnDestroy {
         this.router.navigateByUrl('/');
       },
       error => {
-
-      }
+        // handle errors
+        }
       );
     // this.newBook.emit(this.book);
     // console.log('books', this.books);
   }
-
-
-
-
-
-
 }
