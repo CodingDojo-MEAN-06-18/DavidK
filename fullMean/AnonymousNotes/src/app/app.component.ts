@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
+  newnotes = [];
+  newNotes(eventData) {
+    console.log('new note to be posted');
+    this.newnotes = eventData;
+  }
 }

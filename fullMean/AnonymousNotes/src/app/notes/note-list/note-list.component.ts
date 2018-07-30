@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { NoteService } from '../../services/note.service';
 
 @Component({
@@ -8,19 +8,24 @@ import { NoteService } from '../../services/note.service';
 })
 
 export class NoteListComponent implements OnInit {
+  @Input() newnotes;
 
   notes = [];
 
-  constructor(private noteService: NoteService) { }
+  constructor(private _noteService: NoteService) { }
+
+  ngOnChanges() {
+    console.log('input has changed');
+    this.notes = this.newnotes;
+  }
 
   ngOnInit() {
-    this.noteService.getAll();
-    this.noteService.noteS.subscribe((notes) => {
-      this.notes = notes;
-    }, (err) => {
-      console.log(err);
-
-    });
+    console.log('we are here!');
+    this._noteService.getNotes()
+      .subscribe(response => {
+        this.notes = response.reverse();
+        console.log('this is response', response);
+      });
 
   }
 

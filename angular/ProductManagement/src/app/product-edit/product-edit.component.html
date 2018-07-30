@@ -1,18 +1,18 @@
 <div id="main">
   <h1>Edit Product</h1>
   <fieldset>
-    <form (submit)='update()' #formData='ngForm'>
+    <form (submit)='update($event)' #form='ngForm'>
       <div>
-        <label for=""> Title </label>
-        <input type="text" name="title" required minlength="4" [(ngModel)]='product.title' #title="ngModel">
-        <!-- {{ title.errors | json }} {{ title.valid | json }} -->
+        <label for=""> name </label>
+        <input type="text" name="name" required minlength="4" [(ngModel)]='product.name' #name="ngModel">
+        <!-- {{ name.errors | json }} {{ name.valid | json }} -->
 
-        <div class="errors" *ngIf="(title.touched || title.dirty) &&  title .errors">
-          <div *ngIf='title.errors.required'>
-            Title is required
+        <div class="errors" *ngIf="(name.touched || name.dirty) &&  name .errors">
+          <div *ngIf='name.errors.required'>
+            name is required
           </div>
-          <div *ngIf='title.errors.minlength'>
-            Title must be at least {{title.errors.minlength.requiredLength }} characters.
+          <div *ngIf='name.errors.minlength'>
+            name must be at least {{name.errors.minlength.requiredLength }} characters.
           </div>
         </div>
       </div>

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../product.service';
 import { Product } from '../product';
 import { Router } from '@angular/router';
-import { NgForm } from '@angular/forms';
+
 
 @Component({
   selector: 'app-product-new',
@@ -10,28 +10,19 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./product-new.component.css']
 })
 export class ProductNewComponent implements OnInit {
-  newProduct: Product = new Product();
-  products: Array<Product>;
+
+  product: Product = new Product();
 
   constructor(
     private _productService: ProductService,
     private _router: Router
-  ) {
-    this._productService.productsObservable.subscribe((products) => {
-      this.products = products;
-    });
-   }
+  ) { }
 
-  ngOnInit() {
-    this.newProduct = new Product();
-  }
+  ngOnInit() { }
 
   create() {
-
-    this.products.push(this.newProduct);
-    this._productService.updateProducts(this.products);
-    this.newProduct = new Product();
-    this._router.navigate(['/products']);
+    this._productService.add(this.product);
+    this._router.navigate(['list']);
   }
 
 

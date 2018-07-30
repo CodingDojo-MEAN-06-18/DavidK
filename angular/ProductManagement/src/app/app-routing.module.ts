@@ -16,19 +16,25 @@ const routes: Routes = [
     children: []
   },
   {
-    path: 'products',
+    path: 'home',
+    pathMatch: 'full',
+    component: ProductHomeComponent,
+    children: []
+  },
+  {
+    path: 'list',
     pathMatch: 'full',
     component: ProductListComponent,
     children: []
   },
   {
-    path: 'products/edit/:id',
+    path: 'edit/:id',
     pathMatch: 'full',
     component: ProductEditComponent,
     children: []
   },
   {
-    path: 'products/new',
+    path: 'add',
     pathMatch: 'full',
     component: ProductNewComponent,
     children: []
