@@ -4,8 +4,8 @@
 
 
   <div *ngFor="let product of products" class="products">
-    <img *ngIf="product.imageUrl" [src]="product.imageUrl">
-    <h3 *ngIf="!product.imageUrl">No Image Available.</h3>
+    <img *ngIf="product.img" [src]="product.img">
+    <h3 *ngIf="!product.img">No Image Available.</h3>
     <p>{{ product.name }}</p>
     <p> {{ product.price }}</p>
     <button [routerLink]="['/edit', product.id]">Edit</button>

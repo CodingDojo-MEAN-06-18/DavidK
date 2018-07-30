@@ -25,5 +25,4 @@ export class ProductNewComponent implements OnInit {
     this._router.navigate(['list']);
   }
 
-
 }
