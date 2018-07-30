@@ -8,7 +8,7 @@
     <h3 *ngIf="!product.imageUrl">No Image Available.</h3>
     <p>{{ product.name }}</p>
     <p> {{ product.price }}</p>
-    <button [routerLink]="['/edit', product.id]">edit</button>
+    <button [routerLink]="['/edit', product.id]">Edit</button>
     <button (click)="destroy(product)">Delete</button>
   </div>
 

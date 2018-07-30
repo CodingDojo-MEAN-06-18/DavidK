@@ -30,13 +30,4 @@ export class ProductEditComponent implements OnInit {
     this._productService.updateProduct(this.product);
     this._router.navigate(['list']);
   }
-
-
   }
-
-
-
-
-
-
-

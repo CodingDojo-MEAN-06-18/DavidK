@@ -19,7 +19,7 @@
 
       <div>
         <label for=""> Price</label>
-        <input type="text" name="price" required [(ngModel)]='product.price' #price="ngModel">
+        <input type="number" name="price" required [(ngModel)]='product.price' #price="ngModel">
         <!-- {{ price.errors | json }} {{ price.valid | json }} -->
 
         <div class="errors" *ngIf="(price.touched || price.dirty) &&  price.errors">

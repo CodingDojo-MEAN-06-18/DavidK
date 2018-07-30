@@ -3,16 +3,16 @@
   <fieldset>
     <form (submit)='update($event)' #form='ngForm'>
       <div>
-        <label for=""> name </label>
+        <label for=""> Name </label>
         <input type="text" name="name" required minlength="4" [(ngModel)]='product.name' #name="ngModel">
         <!-- {{ name.errors | json }} {{ name.valid | json }} -->
 
         <div class="errors" *ngIf="(name.touched || name.dirty) &&  name .errors">
           <div *ngIf='name.errors.required'>
-            name is required
+            ** Name is required.
           </div>
           <div *ngIf='name.errors.minlength'>
-            name must be at least {{name.errors.minlength.requiredLength }} characters.
+            ** Name must be at least {{name.errors.minlength.requiredLength }} characters.
           </div>
         </div>
       </div>
@@ -24,7 +24,7 @@
 
         <div class="errors" *ngIf="(price.touched || price.dirty) &&  price.errors">
           <div *ngIf='price.errors.required'>
-            Price is required
+            ** Price is required.
           </div>
         </div>
       </div>
