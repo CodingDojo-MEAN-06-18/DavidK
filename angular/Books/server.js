@@ -15,7 +15,7 @@ app
   .use(logger('dev'))
 
   .use(express.static(path.join(__dirname, 'dist')))
-  // /api/books
+  // /api/books  have the server and angular routes different
   .use('/api', require('./server/routes'))
   .use(require('./server/routes/catch-all.route'));
 
