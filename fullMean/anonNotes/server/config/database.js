@@ -10,9 +10,6 @@ mongoose.connect('mongodb://localhost/notes', { });
 mongoose.connection.on('connected', () => console.log('we are connected to mongodb'));
 
 
-// mongoose.Promise = global.Promise;
-
-
 fs.readdirSync(modelsPath).forEach(file => {
     if (reg.test(file)) {
         require(path.join(modelsPath, file));

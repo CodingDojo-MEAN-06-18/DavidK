@@ -10,12 +10,12 @@ import { Note } from '../models/note';
 export class NoteService {
   private base = '/api/notes';
 
-  constructor(private http: HttpClient) { }
+  constructor(private _http: HttpClient) { this.getNotes(); }
 
   getNotes(): Observable<Note[]> {
-    return this.http.get<Note[]>(this.base);
+    return this._http.get<Note[]>(this.base);
   }
   createNote(note: Note): Observable<Note> {
-    return this.http.post<Note>(this.base, note);
+    return this._http.post<Note>(this.base, note);
   }
 }

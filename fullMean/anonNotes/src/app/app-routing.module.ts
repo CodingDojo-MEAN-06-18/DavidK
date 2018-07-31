@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-
 import { NotelistComponent } from './notes/notelist/notelist.component';
 import { NotenewComponent } from './notes/notenew/notenew.component';
 

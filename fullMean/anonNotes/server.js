@@ -11,14 +11,9 @@ require('./server/config/database');
 app
   .use(bodyParser.urlencoded({ extended: true }))
   .use(bodyParser.json())
-
-
   .use(express.static(path.join(__dirname, 'dist')))
-
-require('./server/config/database');
-
-app.use('/api', require('./server/config/routes'));
-app.use(require('./server/config/routes/catch-all.route'));
+  .use('/api', require('./server/config/routes'))
+  .use(require('./server/config/routes/catch-all.route'));
 
 
 app.listen(port, () => console.log(`Hello Express server be on port ${port}`));

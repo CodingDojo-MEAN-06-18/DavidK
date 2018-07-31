@@ -1,6 +1,7 @@
 const Note = require('mongoose').model('Note');
 
 module.exports = {
+
   index(request, response) {
     Note.find({})
       .then(notes => response.json(notes))
