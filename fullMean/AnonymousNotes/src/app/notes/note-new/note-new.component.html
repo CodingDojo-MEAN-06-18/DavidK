@@ -1,5 +1,0 @@
-<form (submit)="onSubmit($event, noteForm)" #noteForm='ngForm'>
-  <label for="">Note:</label>
-  <input type="text" [(ngModel)]="content" name="content" required>
-  <button [disabled]="noteForm.invalid" type="submit"> Add Note </button>
-</form>
