@@ -1,4 +1,4 @@
 export class Note {
-  _id: string;
-  content: string;
+  constructor(public note: string = '') {}
 }
+

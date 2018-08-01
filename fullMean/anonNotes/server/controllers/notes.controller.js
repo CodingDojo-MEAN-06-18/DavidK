@@ -1,20 +1,20 @@
-const Note = require('mongoose').model('Note');
+const Note = require("../models/note.js");
+const path = require('path');
 
 module.exports = {
 
-  index(request, response) {
-    Note.find({})
-      .then(notes => response.json(notes))
-      .catch(console.log);
-  },
-  create(request, response) {
-    Note.create(request.body)
-      .then(note => response.json(note))
-      .catch(error => {
-        const errors = Object.keys(error.errors)
-          .map(key => error.errors[key].message);
+  index: (req, res, next) => res.sendFile(path.resolve("./dist/index.html")),
 
-        response.json(errors);
-      });
-  }
+  add: (req, res, next) => {
+    Note.create(req.body)
+      .then(note => res.json(note))
+      .catch(error => res.json(error));
+  },
+
+  grab: (req, res, next) => {
+    Note.find({}).sort('-createdAt')
+      .then(notes => res.json(notes))
+      .catch(error => res.json(error));
+    }
+
 }

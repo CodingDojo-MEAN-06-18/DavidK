@@ -1,6 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Subscription } from 'rxjs';
-
+import { Component, OnInit } from '@angular/core';
 import { Note } from '../../models/note';
 import { NoteService } from '../../services/note.service';
 
@@ -10,19 +8,16 @@ import { NoteService } from '../../services/note.service';
   templateUrl: './notelist.component.html',
   styleUrls: ['./notelist.component.css']
 })
-export class NotelistComponent implements OnInit, OnDestroy {
-  notes: Note[] = [];
-  sub: Subscription;
+export class NotelistComponent implements OnInit {
+  notes: Array<Note> = [];
 
-  constructor(private noteService: NoteService) { }
+  constructor(private noteService: NoteService) {
+    this.noteService.notes.subscribe(
+      notes => this.notes = notes.reverse()
+    );
+   }
 
   ngOnInit() {
-    this.sub = this.noteService.getNotes().subscribe(notes => {
-      this.notes = notes;
-    });
+    this.noteService.grab();
   }
-  ngOnDestroy() {
-    this.sub.unsubscribe();
-  }
-
 }

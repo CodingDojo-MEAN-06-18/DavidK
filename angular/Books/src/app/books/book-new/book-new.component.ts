@@ -11,7 +11,7 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./book-new.component.css']
 })
 export class BookNewComponent implements OnInit, OnDestroy {
-  book = new Book();
+  book: Book = new Book();
   sub: Subscription;
 
   @Output() newBook = new EventEmitter<Book>();

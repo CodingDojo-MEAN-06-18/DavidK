@@ -1,21 +1,38 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-
+import { BehaviorSubject } from 'rxjs';
 import { Note } from '../models/note';
 
 @Injectable({
   providedIn: 'root'
 })
 export class NoteService {
-  private base = '/api/notes';
 
-  constructor(private _http: HttpClient) { this.getNotes(); }
+  notes: BehaviorSubject<Array<Note>> = new BehaviorSubject([]);
 
-  getNotes(): Observable<Note[]> {
-    return this._http.get<Note[]>(this.base);
+  constructor(private _http: HttpClient) { }
+
+
+  grab() {
+    this._http.get('/grab').subscribe(
+      data => this.notes.next(data as Array<Note>),
+      err => console.log(err)
+    );
   }
-  createNote(note: Note): Observable<Note> {
-    return this._http.post<Note>(this.base, note);
+  add(note: Note): void {
+    this._http.post('/add', note).subscribe(
+      (data) => {
+        console.log('success');
+        const notes = this.getNotes();
+        notes.push(data as Note);
+        this.notes.next(notes);
+      },
+      (err) =>
+        console.log(err)
+    );
   }
+
+  private getNotes = (): Array<Note> => this.notes.getValue();
+
+
 }
