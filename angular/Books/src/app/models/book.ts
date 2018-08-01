@@ -7,9 +7,5 @@ export class Book {
   publisher: string;
 
 
-  constructor() {
-    // if (createId) {
-    //   this.id = Math.round(Math.random() * 1000);
-    // }
-  }
+
 }

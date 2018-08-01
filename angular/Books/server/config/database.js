@@ -6,8 +6,12 @@ const reg = new RegExp('\\.js$', 'i');
 // const modelsPath = path.resolve('server', 'models');
 const modelsPath = path.join(__dirname, '../models');
 
-mongoose.connect('mongodb://localhost:27017/books');
-mongoose.connection.on('connected', () => console.log('connected'));
+mongoose.connect('mongodb://localhost:27017/books',
+  {
+  useNewUrlParser: true,
+  }
+);
+mongoose.connection.on('connected', () => console.log('connected to MongoDb!'));
 
 //older version of mongoose less than 4
 // mongoose.Promise = global.Promise;

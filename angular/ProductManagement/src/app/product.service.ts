@@ -15,8 +15,8 @@ export class ProductService {
   }
 
   add(product: Product): void {
-    const products = this.products.getValue();
-    // const products = this.getProducts();
+    // const products = this.products.getValue();
+    const products = this.getProducts();
     product.id = products.length + 1;
     products.push(product);
     this.products.next(products);

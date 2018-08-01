@@ -8,7 +8,6 @@ const app = express();
 
 
 require('./server/config/database');
-
 app
   .use(bodyParser.urlencoded({ extended: true }))
   .use(bodyParser.json())
@@ -18,6 +17,7 @@ app
 
   .use('/api', require('./server/routes'))
   .use(require('./server/routes/catch-all.route'));
+
 
 
 app.listen(port, () => console.log(`Hello Express server be on port ${port}`));

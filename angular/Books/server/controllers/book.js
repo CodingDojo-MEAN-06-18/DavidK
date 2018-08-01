@@ -2,10 +2,10 @@ const Book = require('mongoose').model('Book');
 
 
 module.exports = {
-  //get all of resource
+  //grab all of resource
   index(request, response) {
     Book.find({})
-      .then(book => response.json(book))
+      .then(books => response.json(books))
       .catch(console.log)
   },
 
@@ -21,23 +21,23 @@ module.exports = {
       });
   },
 
-  //get a single resource
+  //grab a single resource
   show(request, response) {
     Book.findById(request.params.book_id)
       .then(book => response.json(book))
       .catch(console.log);
   },
 
-  //update a resource
+  //update a single resource
   update(request, response) {
-    Book.findByIdAndUpdate(request.params.book_id, request.body , { new: true })
+    Book.findByIdAndUpdate(request.params.book_id, request.body, { new: true })
       .then(book => response.json(book))
       .catch(console.log);
-   },
-  //destroy resource
+  },
+  //destroy a single resource
   destroy(request, response) {
     Book.findByIdAndRemove(request.params.book_id)
       .then(book => response.json(book))
       .catch(console.log);
-   },
-}
+  },
+};

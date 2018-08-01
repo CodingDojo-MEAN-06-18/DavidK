@@ -1,6 +1,6 @@
 const { bookController } = require('../controllers');
 //non barrelling way to access controllers
-// const bookController = require('../controllers/book.controller');
+// const bookController = require('../controllers/books');
 
 const router = require('express').Router();
 
