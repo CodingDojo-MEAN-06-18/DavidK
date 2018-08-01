@@ -6,6 +6,7 @@ import { Book } from '../../models/book';
 import { TitleizePipe } from '../../titleize.pipe';
 import { BookService } from '../../services';
 import { HttpClient } from '@angular/common/http';
+
 @Component({
   selector: 'app-book-list',
   templateUrl: './book-list.component.html',
@@ -63,13 +64,12 @@ export class BookListComponent implements OnInit {
   //   this.filter = new Book(false);
   // }
 
-  onDelete(bookToDelete: Book) {
-    console.log('deleting book');
-    this.bookService.deleteBook(bookToDelete)
-      .subscribe(
-        deletedBook => {
-        console.log('deleted book', deletedBook);
-        this.books = this.books.filter(book => book._id !== deletedBook._id);
+  onDelete(id: string) {
+    console.log('deleting book', id);
+    this.bookService.deleteBook(id).subscribe(
+        updatedBook => {
+        console.log('things are happening ', id);
+        this.books = this.books.filter(book => book._id !== id);
       },
       error => {
         console.log('error', error);

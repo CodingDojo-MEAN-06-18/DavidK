@@ -3,7 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { switchMap } from 'rxjs/operators';
 
 import { BookService } from '../../services';
-import { Book } from '../../models/book';
+import { Book } from '../../models';
 
 @Component({
   selector: 'app-book-detail',

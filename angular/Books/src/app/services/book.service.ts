@@ -4,7 +4,7 @@ import { of } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 
 import { BOOKS } from '../data/book-data';
-import { Book } from '../models/book';
+import { Book } from '../models';
 
 @Injectable({
   providedIn: 'root'
@@ -31,7 +31,7 @@ export class BookService {
     return this.http.post<Book>(this.base, book);
   }
 
-  deleteBook(book: Book): Observable<Book> {
-    return this.http.delete<Book>(`${this.base}/${book._id}`);
+  deleteBook(id: string): Observable<Book> {
+    return this.http.delete<Book>(`${this.base}/${id}`);
   }
 }
