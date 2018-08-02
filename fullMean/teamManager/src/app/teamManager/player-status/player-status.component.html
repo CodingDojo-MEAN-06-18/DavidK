@@ -1,0 +1,25 @@
+<h2>
+  <button (click)="changeGame(1)">Game 1</button>
+  <button (click)="changeGame(2)">Game 2</button>
+  <button (click)="changeGame(3)">Game 3</button>
+</h2>
+<h1> Player Status - Game {{gamenum}}</h1>
+
+
+<table style="width:100%">
+  <tr>
+    <th>Player Name</th>
+    <th>Actions</th>
+  </tr>
+  <tr *ngFor="let player of players">
+    <td>{{player.name}}</td>
+
+    <td>
+      <button (click)="changeStatus(player,'p',gamenum)" [ngStyle]="{'background-color':player.status[gamenum -1] === 1 ? 'green' : 'none' }">Playing</button>
+      <button (click)="changeStatus(player,'np',gamenum)" [ngStyle]="{'background-color':player.status[gamenum -1] === 2 ? 'red' : 'none' }">Not Playing</button>
+      <button (click)="changeStatus(player,'u',gamenum)" [ngStyle]="{'background-color':player.status[gamenum -1] === 0 ? 'yellow' : 'none' }">Undecided</button>
+
+    </td>
+  </tr>
+
+</table>
