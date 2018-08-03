@@ -7,21 +7,17 @@ import { ManagerService } from '../../manager.service';
   styleUrls: ['./player-list.component.css']
 })
 export class PlayerListComponent implements OnInit {
+  players = [];
+  currentPlayer = {};
 
   constructor(private _managerService: ManagerService) { }
 
-  players = [];
-  currentPlayer = '';
-
   ngOnInit() {
     this._managerService.players.subscribe(
-      (players) => {
-        this.players = players;
-      },
-      (error) => {
-        console.log(error);
-      });
-    this._managerService.showPlayers();
+      players => this.players = players,
+      error => console.log(error)
+    );
+    // this._managerService.showPlayers();
   }
 
   deletePlayer(player) {

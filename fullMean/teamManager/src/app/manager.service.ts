@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
@@ -11,13 +11,13 @@ export class ManagerService {
 
   private base = '/api/players';
 
-  constructor(private _http: Http) { }
+  constructor(private _http: HttpClient) { }
 
 
   // show players
-  showPlayers() {
-    return this._http.get(this.base).subscribe((data) => {
-        this.players.next(data.json());
+  showPlayers(): void {
+    this._http.get(this.base).subscribe((response) => {
+        this.players.next(response as any);
     },
       (error) => {
         console.log('error getting players');
@@ -25,10 +25,10 @@ export class ManagerService {
     );
   }
   // add player
-  addPlayer(player) {
-    return this._http.post(this.base, player).subscribe(
-      (data) => {
-        this.showPlayers();
+  addPlayer(name: string, position: string): void {
+    this._http.post(this.base, { name: name, position: position }).subscribe(
+      (response) => {
+        console.log('player added', response);
       },
       (error) => {
         console.log('error adding a new player', error);
@@ -37,26 +37,18 @@ export class ManagerService {
   }
 
   // delete player
-  deletePlayer(player) {
-    return this._http.delete(this.base, player).subscribe(
-      (data) => {
-        this.showPlayers();
-      },
-      (error) => {
-        console.log('error deleting player');
-      }
+  deletePlayer(player: any): void {
+    this._http.delete(`/api/players/delete/${player._id}`).subscribe(
+      response => this.showPlayers(),
+      error => console.log(error)
     );
   }
 
   // update status
-  updateStatus(id, game, value) {
-    return this._http.put(this.base, { 'id': id, 'game': game, 'setValue': value }).subscribe(
-      (data) => {
-        this.showPlayers();
-      },
-      (error) => {
-        console.log('error updating player');
-      }
+  updateStatus(player: any, game: number, action: string): void {
+    this._http.put('api/games', { 'player': player, 'game': game, 'action': action }).subscribe(
+      response => this.showPlayers(),
+      error => console.log('error updating player', error)
     );
   }
 

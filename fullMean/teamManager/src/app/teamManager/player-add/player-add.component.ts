@@ -9,11 +9,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./player-add.component.css']
 })
 export class PlayerAddComponent implements OnInit {
+  name: '';
+  position: '';
 
-  player = {
-    name: '',
-    position: ''
-  };
 
   constructor(
     private _managerService: ManagerService,
@@ -21,10 +19,9 @@ export class PlayerAddComponent implements OnInit {
 
   ngOnInit() { }
 
-  onSubmit(event: Event, form: NgForm) {
+  onSubmit(event: Event): void {
     event.preventDefault();
-    this._managerService.addPlayer(this.player);
-    form.reset();
+    this._managerService.addPlayer(this.name, this.position);
     this._router.navigateByUrl('/players/list');
     }
 

@@ -1,12 +1,12 @@
-<form (submit)="onSubmit($event,myForm)" #myForm='ngForm'>
+<form (submit)="onSubmit($event)" #myForm='ngForm'>
   <p>
     <label for=name>Player Name: </label>
-    <input name="name" id="name" type="text" [(ngModel)]="player.name" required minlength=2 #name="ngModel">
+    <input name="name" id="name" type="text" [(ngModel)]="name" required minlength=2 #name="ngModel">
   </p>
   <div class="errormsg" *ngIf="!myForm.valid  && myForm.dirty"> ** Name must be at least 2 characters long!</div>
   <p>
     <label for=positionid>Preferred Position: </label>
-    <input name="position" id="positionid" type="text" [(ngModel)]="player.position" #positionid="ngModel">
+    <input name="position" id="positionid" type="text" [(ngModel)]="position" #positionid="ngModel">
   </p>
   <p>
     <button [disabled]="!myForm.valid">Add</button>
