@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
+import { ModalModule} from '../../node_modules/ngx-bootstrap';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
@@ -26,9 +27,10 @@ import { ListplayersComponent } from './teammanager/players/listplayers/listplay
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ModalModule.forRoot()
   ],
-  providers: [],
+  providers: [PlayersService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

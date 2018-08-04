@@ -1,1 +1,24 @@
-<h2>from listplayers component</h2>
+<p>(from listplayers component)</p>
+<h5 *ngIf="players.length <= 0">Please add a player </h5>
+
+<table *ngIf="players.length > 0">
+
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Position</th>
+      <th>actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let player of players">
+      <td>{{ player.name }}</td>
+      <td>{{ player.position }}</td>
+      <td>
+        <button type="button" (click)="openModal(player, staticModal)">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+
+</table>
