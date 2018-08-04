@@ -11,8 +11,6 @@ export const component: any[] = [
   TeammanagerComponent
 ];
 
-
-
 export * from './games/game/game.component';
 export * from './players/listplayers/listplayers.component';
 export * from './players/addplayer/addplayer.component';
