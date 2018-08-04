@@ -7,7 +7,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/* You can add global styles to this file, and also import other style files */\n"
+module.exports = "/* You can add global styles to this file, and also import other style files */\nbody {\n  width: 75vw;\n  margin: 0 auto;\n}\n#manager{\n  border: 2px solid black;\n  padding: 20px;\n  margin: 20px;\n  height: 100%;\n\n}\n#listmanager {\n  border: 2px solid black;\n  padding: 20px;\n  margin: 20px;\n  height: 100%;\n\n}\n#addmanager {\n  border: 2px solid black;\n  padding: 20px;\n  margin: 20px;\n  height: 100%;\n\n}\n#gamemanager {\n  border: 2px solid black;\n  padding: 20px;\n  margin: 0 auto;\n  height: 100%;\n\n}\n\n\n"
 
 /***/ }),
 

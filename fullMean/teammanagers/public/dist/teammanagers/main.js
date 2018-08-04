@@ -119,7 +119,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!--The content below is only a placeholder and can be replaced.-->\n<p>(From app component root)</p>\n<a [routerLink]=\"['players']\"> Manage Players </a> |\n<a [routerLink]=\"['games']\"> Manage Player Status </a>\n\n<router-outlet></router-outlet>\n"
+module.exports = "<!--The content below is only a placeholder and can be replaced.-->\n<div id=\"main\">\n  <p>(From app component root)</p>\n  <a [routerLink]=\"['players']\"> Manage Players </a> |\n  <a [routerLink]=\"['games']\"> Manage Player Status </a>\n\n  <router-outlet></router-outlet>\n</div>\n"
 
 /***/ }),
 
@@ -236,7 +236,7 @@ var AppModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".green {\n  background-color: green;\n}\n\n.yellow {\n  background-color: yellow;\n}\n\n.red {\n  background-color: red;\n}\n"
+module.exports = ".green {\n  background-color: green;\n}\n\n.yellow {\n  background-color: yellow;\n}\n\n.red {\n  background-color: red;\n}\n\nbutton {\n  margin-left: 10px;\n  margin-right: 10px;\n  color: black;\n}\n\n#gamemanger {\n  margin: 0 auto;\n}\n"
 
 /***/ }),
 
@@ -247,7 +247,7 @@ module.exports = ".green {\n  background-color: green;\n}\n\n.yellow {\n  backgr
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>from game component</p>\n\n<div>\n\n  <ul>\n    <li>\n      <a [routerLink]=\"['../../games', '1']\">Game 1</a>\n    </li>\n    <li>\n      <a [routerLink]=\"['../../games', '2']\">Game 2</a>\n    </li>\n    <li>\n      <a [routerLink]=\"['../../games', '3']\">Game 3</a>\n    </li>\n  </ul>\n\n\n  <h5 *ngIf=\"players.length <= 0\">Please add a player</h5>\n\n  <table *ngIf=\"players.length > 0\">\n    <thead>\n      <tr>\n        <th>Name</th>\n        <th>Actions</th>\n      </tr>\n    </thead>\n\n    <tbody>\n      <tr *ngFor=\"let player of players\">\n        <td>{{ player.name }}</td>\n        <td>\n          <div>\n            <button (click)='onClick(player, \"p\")' class=\"btn\" [ngClass]=\"{'green': player.games[game].status === 'p'}\">Playing</button>\n            <button (click)='onClick(player, \"n\")' class=\"btn\" [ngClass]=\"{'red': player.games[game].status === 'n'}\">Not Playing</button>\n            <button (click)='onClick(player, \"u\")' class=\"btn\" [ngClass]=\"{'yellow': player.games[game].status === 'u'}\">Undecided</button>\n          </div>\n        </td>\n      </tr>\n  </table>\n</div>\n"
+module.exports = "<div id=\"gamemanager\">\n\n  <p>from game component</p>\n\n  <div>\n    <a [routerLink]=\"['../../games', '1']\">Game 1</a> |\n    <a [routerLink]=\"['../../games', '2']\">Game 2</a> |\n    <a [routerLink]=\"['../../games', '3']\">Game 3</a>\n\n    <h5 *ngIf=\"players.length <= 0\">Please add a player</h5>\n\n    <table *ngIf=\"players.length > 0\">\n      <thead>\n        <tr>\n          <th>Name</th>\n          <th>Actions</th>\n        </tr>\n      </thead>\n\n      <tbody>\n        <tr *ngFor=\"let player of players\">\n          <td>{{ player.name }}</td>\n          <td>\n            <div>\n              <button (click)='onClick(player, \"p\")' class=\"btn\" [ngClass]=\"{'green': player.games[game].status === 'p'}\">Playing</button>\n              <button (click)='onClick(player, \"n\")' class=\"btn\" [ngClass]=\"{'red': player.games[game].status === 'n'}\">Not Playing</button>\n              <button (click)='onClick(player, \"u\")' class=\"btn\" [ngClass]=\"{'yellow': player.games[game].status === 'u'}\">Undecided</button>\n            </div>\n          </td>\n        </tr>\n    </table>\n  </div>\n\n</div>\n"
 
 /***/ }),
 
@@ -371,7 +371,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>(from add player component)</p>\n\n<div class=\"col\">\n  <h4>Add Player</h4>\n  <form (submit)=\"onSubmit($event)\" #form=\"ngForm\">\n    <div class=\"form-group\">\n      <label for=\"name\">Player Name</label>\n      <input type=\"text\" name=\"name\" class=\"form-control\" [(ngModel)]=\"name\" #playerName=\"ngModel\" minlength=\"3\" required>\n      <div *ngIf=\"playerName.dirty && !playerName.valid\">** Name must be longer than 2 characters</div>\n    </div>\n    <div class=\"form-group\">\n      <label for=\"position\">Preferred Position</label>\n      <select name=\"position\" [(ngModel)]=\"position\" #playerPosition=\"ngModel\" required>\n        <option value=\"\"></option>\n        <option *ngFor=\"let position of positions\" value=\"{{ position | lowercase }}\">{{ position }}</option>\n      </select>\n      <div *ngIf=\"playerPosition.dirty && !playerPosition.valid\"> ** Please choose a position</div>\n    </div>\n    <button type=\"submit\" [disabled]=\"form.invalid\">Add Player</button>\n  </form>\n</div>\n"
+module.exports = "<div id=\"addmanager\">\n  <p>(from add player component)</p>\n\n  <div class=\"col\">\n    <h4>Add Player</h4>\n    <form (submit)=\"onSubmit($event)\" #form=\"ngForm\">\n      <div class=\"form-group\">\n        <label for=\"name\">Player Name</label>\n        <input type=\"text\" name=\"name\" class=\"form-control\" [(ngModel)]=\"name\" #playerName=\"ngModel\" minlength=\"3\" required>\n        <div *ngIf=\"playerName.dirty && !playerName.valid\">** Name must be longer than 2 characters</div>\n      </div>\n      <div class=\"form-group\">\n        <label for=\"position\">Preferred Position</label>\n        <select name=\"position\" [(ngModel)]=\"position\" #playerPosition=\"ngModel\" required>\n          <option value=\"\"></option>\n          <option *ngFor=\"let position of positions\" value=\"{{ position | lowercase }}\">{{ position }}</option>\n        </select>\n        <div *ngIf=\"playerPosition.dirty && !playerPosition.valid\"> ** Please choose a position</div>\n      </div>\n      <button type=\"submit\" [disabled]=\"form.invalid\">Add Player</button>\n    </form>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -456,7 +456,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>(from listplayers component)</p>\n<h5 *ngIf=\"players.length <= 0\">Please add a player </h5>\n\n<table *ngIf=\"players.length > 0\">\n\n  <thead>\n    <tr>\n      <th>Name</th>\n      <th>Position</th>\n      <th>actions</th>\n    </tr>\n  </thead>\n\n  <tbody>\n    <tr *ngFor=\"let player of players\">\n      <td>{{ player.name }}</td>\n      <td>{{ player.position }}</td>\n      <td>\n        <button type=\"button\" (click)=\"openModal(player, staticModal)\">Delete</button>\n      </td>\n    </tr>\n  </tbody>\n\n</table>\n"
+module.exports = "<div id=\"listmanager\">\n  <p>(from listplayers component)</p>\n  <h5 *ngIf=\"players.length <= 0\">Please add a player </h5>\n\n  <table *ngIf=\"players.length > 0\">\n\n    <thead>\n      <tr>\n        <th>Name</th>\n        <th>Position</th>\n        <th>actions</th>\n      </tr>\n    </thead>\n\n    <tbody>\n      <tr *ngFor=\"let player of players\">\n        <td>{{ player.name }}</td>\n        <td>{{ player.position }}</td>\n        <td>\n          <button type=\"button\" (click)=\"openModal(player, staticModal)\">Delete</button>\n        </td>\n      </tr>\n    </tbody>\n\n  </table>\n</div>\n"
 
 /***/ }),
 
@@ -597,7 +597,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>(from teammanagers component)</p>\n<a [routerLink]=\"['list']\"> List Players </a> |\n<a [routerLink]=\"['add']\"> Add Players </a>\n<router-outlet></router-outlet>\n"
+module.exports = "<div id=\"manager\">\n  <p>(from teammanagers component)</p>\n  <a [routerLink]=\"['list']\"> List Players </a> |\n  <a [routerLink]=\"['add']\"> Add Players </a>\n  <router-outlet></router-outlet>\n</div>\n"
 
 /***/ }),
 

@@ -1,40 +1,34 @@
-<p>from game component</p>
+<div id="gamemanager">
 
-<div>
+  <p>from game component</p>
+  <h1> Player Status </h1>
+  <div>
+    <a [routerLink]="['../../games', '1']">Game 1</a> |
+    <a [routerLink]="['../../games', '2']">Game 2</a> |
+    <a [routerLink]="['../../games', '3']">Game 3</a>
 
-  <ul>
-    <li>
-      <a [routerLink]="['../../games', '1']">Game 1</a>
-    </li>
-    <li>
-      <a [routerLink]="['../../games', '2']">Game 2</a>
-    </li>
-    <li>
-      <a [routerLink]="['../../games', '3']">Game 3</a>
-    </li>
-  </ul>
+    <h5 *ngIf="players.length <= 0">Please add a player</h5>
 
+    <table *ngIf="players.length > 0">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
 
-  <h5 *ngIf="players.length <= 0">Please add a player</h5>
+      <tbody>
+        <tr *ngFor="let player of players">
+          <td>{{ player.name }}</td>
+          <td>
+            <div>
+              <button (click)='onClick(player, "p")' class="btn" [ngClass]="{'green': player.games[game].status === 'p'}">Playing</button>
+              <button (click)='onClick(player, "n")' class="btn" [ngClass]="{'red': player.games[game].status === 'n'}">Not Playing</button>
+              <button (click)='onClick(player, "u")' class="btn" [ngClass]="{'yellow': player.games[game].status === 'u'}">Undecided</button>
+            </div>
+          </td>
+        </tr>
+    </table>
+  </div>
 
-  <table *ngIf="players.length > 0">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Actions</th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <tr *ngFor="let player of players">
-        <td>{{ player.name }}</td>
-        <td>
-          <div>
-            <button (click)='onClick(player, "p")' class="btn" [ngClass]="{'green': player.games[game].status === 'p'}">Playing</button>
-            <button (click)='onClick(player, "n")' class="btn" [ngClass]="{'red': player.games[game].status === 'n'}">Not Playing</button>
-            <button (click)='onClick(player, "u")' class="btn" [ngClass]="{'yellow': player.games[game].status === 'u'}">Undecided</button>
-          </div>
-        </td>
-      </tr>
-  </table>
 </div>
