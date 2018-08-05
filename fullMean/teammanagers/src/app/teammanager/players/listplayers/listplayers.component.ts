@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { PlayersService } from '../../services/team/players.service';
-import { ModalDirective } from '../../../../../node_modules/ngx-bootstrap';
 
 
 @Component({
@@ -23,20 +22,9 @@ export class ListplayersComponent implements OnInit {
     );
   }
 
-  openModal(player: any, modal: ModalDirective): void {
-    event.preventDefault();
-    this.current = player;
-    modal.show();
+  deletePlayer(player): void {
+    console.log(player);
+    this._playerService.deletePlayer(player);
   }
-
-  deletePlayer(modal: ModalDirective): void {
-    console.log(this.current);
-    this._playerService.deletePlayer(this.current);
-    modal.hide();
-  }
-
-
-
-
 
 }

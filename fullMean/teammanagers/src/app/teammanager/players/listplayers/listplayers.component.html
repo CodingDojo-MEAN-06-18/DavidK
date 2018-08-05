@@ -1,12 +1,11 @@
 <div id="listmanager">
-  <p>(from listplayers component)</p>
+  <!-- <p>(from listplayers component)</p> -->
   <h5 *ngIf="players.length <= 0">Please add a player </h5>
 
   <table *ngIf="players.length > 0">
 
     <thead>
       <tr>
-        <th>ID</th>
         <th>Name</th>
         <th>Position</th>
         <th>actions</th>
@@ -15,14 +14,12 @@
 
     <tbody>
       <tr *ngFor="let player of players">
-        <td>{{ player.id }}</td>
         <td>{{ player.name }}</td>
         <td>{{ player.position }}</td>
         <td>
-          <button type="button" (click)="openModal(player, staticModal)">Delete</button>
+          <button type="button" (click)="deletePlayer(player)">Delete</button>
         </td>
       </tr>
     </tbody>
-
   </table>
 </div>

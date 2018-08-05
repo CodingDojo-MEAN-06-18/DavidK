@@ -108,7 +108,7 @@ var AppRoutingModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ""
+module.exports = "#main {\n  margin-top: 20px;\n  padding-top: 20px;\n}\n"
 
 /***/ }),
 
@@ -119,7 +119,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!--The content below is only a placeholder and can be replaced.-->\n<div id=\"main\">\n  <p>(From app component root)</p>\n  <a [routerLink]=\"['players']\"> Manage Players </a> |\n  <a [routerLink]=\"['games']\"> Manage Player Status </a>\n\n  <router-outlet></router-outlet>\n</div>\n"
+module.exports = "<div id=\"main\">\n  <!-- <p>(From app component root)</p> -->\n  <a [routerLink]=\"['players']\"> Manage Players </a> |\n  <a [routerLink]=\"['games']\"> Manage Player Status </a>\n\n  <router-outlet></router-outlet>\n</div>\n"
 
 /***/ }),
 
@@ -173,14 +173,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
-/* harmony import */ var _node_modules_ngx_bootstrap__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../node_modules/ngx-bootstrap */ "./node_modules/ngx-bootstrap/index.js");
-/* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./app-routing.module */ "./src/app/app-routing.module.ts");
-/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
-/* harmony import */ var _teammanager_services_team_players_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./teammanager/services/team/players.service */ "./src/app/teammanager/services/team/players.service.ts");
-/* harmony import */ var _teammanager_teammanager_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./teammanager/teammanager.component */ "./src/app/teammanager/teammanager.component.ts");
-/* harmony import */ var _teammanager_games_game_game_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./teammanager/games/game/game.component */ "./src/app/teammanager/games/game/game.component.ts");
-/* harmony import */ var _teammanager_players_addplayer_addplayer_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./teammanager/players/addplayer/addplayer.component */ "./src/app/teammanager/players/addplayer/addplayer.component.ts");
-/* harmony import */ var _teammanager_players_listplayers_listplayers_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./teammanager/players/listplayers/listplayers.component */ "./src/app/teammanager/players/listplayers/listplayers.component.ts");
+/* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./app-routing.module */ "./src/app/app-routing.module.ts");
+/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
+/* harmony import */ var _teammanager_services_team_players_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./teammanager/services/team/players.service */ "./src/app/teammanager/services/team/players.service.ts");
+/* harmony import */ var _teammanager_teammanager_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./teammanager/teammanager.component */ "./src/app/teammanager/teammanager.component.ts");
+/* harmony import */ var _teammanager_games_game_game_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./teammanager/games/game/game.component */ "./src/app/teammanager/games/game/game.component.ts");
+/* harmony import */ var _teammanager_players_addplayer_addplayer_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./teammanager/players/addplayer/addplayer.component */ "./src/app/teammanager/players/addplayer/addplayer.component.ts");
+/* harmony import */ var _teammanager_players_listplayers_listplayers_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./teammanager/players/listplayers/listplayers.component */ "./src/app/teammanager/players/listplayers/listplayers.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -198,28 +197,26 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 
-
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
     AppModule = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
             declarations: [
-                _app_component__WEBPACK_IMPORTED_MODULE_6__["AppComponent"],
-                _teammanager_teammanager_component__WEBPACK_IMPORTED_MODULE_8__["TeammanagerComponent"],
-                _teammanager_games_game_game_component__WEBPACK_IMPORTED_MODULE_9__["GameComponent"],
-                _teammanager_players_addplayer_addplayer_component__WEBPACK_IMPORTED_MODULE_10__["AddplayerComponent"],
-                _teammanager_players_listplayers_listplayers_component__WEBPACK_IMPORTED_MODULE_11__["ListplayersComponent"],
+                _app_component__WEBPACK_IMPORTED_MODULE_5__["AppComponent"],
+                _teammanager_teammanager_component__WEBPACK_IMPORTED_MODULE_7__["TeammanagerComponent"],
+                _teammanager_games_game_game_component__WEBPACK_IMPORTED_MODULE_8__["GameComponent"],
+                _teammanager_players_addplayer_addplayer_component__WEBPACK_IMPORTED_MODULE_9__["AddplayerComponent"],
+                _teammanager_players_listplayers_listplayers_component__WEBPACK_IMPORTED_MODULE_10__["ListplayersComponent"],
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
-                _app_routing_module__WEBPACK_IMPORTED_MODULE_5__["AppRoutingModule"],
+                _app_routing_module__WEBPACK_IMPORTED_MODULE_4__["AppRoutingModule"],
                 _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormsModule"],
                 _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClientModule"],
-                _node_modules_ngx_bootstrap__WEBPACK_IMPORTED_MODULE_4__["ModalModule"].forRoot()
             ],
-            providers: [_teammanager_services_team_players_service__WEBPACK_IMPORTED_MODULE_7__["PlayersService"]],
-            bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_6__["AppComponent"]]
+            providers: [_teammanager_services_team_players_service__WEBPACK_IMPORTED_MODULE_6__["PlayersService"]],
+            bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_5__["AppComponent"]]
         })
     ], AppModule);
     return AppModule;
@@ -247,7 +244,7 @@ module.exports = ".green {\n  background-color: green;\n}\n\n.yellow {\n  backgr
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"gamemanager\">\n\n  <p>from game component</p>\n\n  <div>\n    <a [routerLink]=\"['../../games', '1']\">Game 1</a> |\n    <a [routerLink]=\"['../../games', '2']\">Game 2</a> |\n    <a [routerLink]=\"['../../games', '3']\">Game 3</a>\n\n    <h5 *ngIf=\"players.length <= 0\">Please add a player</h5>\n\n    <table *ngIf=\"players.length > 0\">\n      <thead>\n        <tr>\n          <th>Name</th>\n          <th>Actions</th>\n        </tr>\n      </thead>\n\n      <tbody>\n        <tr *ngFor=\"let player of players\">\n          <td>{{ player.name }}</td>\n          <td>\n            <div>\n              <button (click)='onClick(player, \"p\")' class=\"btn\" [ngClass]=\"{'green': player.games[game].status === 'p'}\">Playing</button>\n              <button (click)='onClick(player, \"n\")' class=\"btn\" [ngClass]=\"{'red': player.games[game].status === 'n'}\">Not Playing</button>\n              <button (click)='onClick(player, \"u\")' class=\"btn\" [ngClass]=\"{'yellow': player.games[game].status === 'u'}\">Undecided</button>\n            </div>\n          </td>\n        </tr>\n    </table>\n  </div>\n\n</div>\n"
+module.exports = "<div id=\"gamemanager\">\n\n  <!-- <p>From game component</p> -->\n  <h1> Player Status </h1>\n  <div>\n    <a [routerLink]=\"['../../games', '1']\">Game 1</a> |\n    <a [routerLink]=\"['../../games', '2']\">Game 2</a> |\n    <a [routerLink]=\"['../../games', '3']\">Game 3</a>\n\n    <h5 *ngIf=\"players.length <= 0\">Please add a player</h5>\n\n    <table *ngIf=\"players.length > 0\">\n      <thead>\n        <tr>\n          <th>Name</th>\n          <th>Actions</th>\n        </tr>\n      </thead>\n\n      <tbody>\n        <tr *ngFor=\"let player of players\">\n          <td>{{ player.name }}</td>\n          <td>\n            <div>\n              <button (click)='onClick(player, \"p\")' class=\"btn\" [ngClass]=\"{'green': player.games[game].status === 'p'}\">Playing</button>\n              <button (click)='onClick(player, \"n\")' class=\"btn\" [ngClass]=\"{'red': player.games[game].status === 'n'}\">Not Playing</button>\n              <button (click)='onClick(player, \"u\")' class=\"btn\" [ngClass]=\"{'yellow': player.games[game].status === 'u'}\">Undecided</button>\n            </div>\n          </td>\n        </tr>\n    </table>\n  </div>\n\n</div>\n"
 
 /***/ }),
 
@@ -360,7 +357,7 @@ var component = [
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ""
+module.exports = ".warning {\n  color: red;\n}\n\n"
 
 /***/ }),
 
@@ -371,7 +368,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"addmanager\">\n  <p>(from add player component)</p>\n\n  <div class=\"col\">\n    <h4>Add Player</h4>\n    <form (submit)=\"onSubmit($event)\" #form=\"ngForm\">\n      <div class=\"form-group\">\n        <label for=\"name\">Player Name</label>\n        <input type=\"text\" name=\"name\" class=\"form-control\" [(ngModel)]=\"name\" #playerName=\"ngModel\" minlength=\"3\" required>\n        <div *ngIf=\"playerName.dirty && !playerName.valid\">** Name must be longer than 2 characters</div>\n      </div>\n      <div class=\"form-group\">\n        <label for=\"position\">Preferred Position</label>\n        <select name=\"position\" [(ngModel)]=\"position\" #playerPosition=\"ngModel\" required>\n          <option value=\"\"></option>\n          <option *ngFor=\"let position of positions\" value=\"{{ position | lowercase }}\">{{ position }}</option>\n        </select>\n        <div *ngIf=\"playerPosition.dirty && !playerPosition.valid\"> ** Please choose a position</div>\n      </div>\n      <button type=\"submit\" [disabled]=\"form.invalid\">Add Player</button>\n    </form>\n  </div>\n</div>\n"
+module.exports = "<div id=\"addmanager\">\n  <!-- <p>(from add player component)</p> -->\n\n  <div class=\"col\">\n    <h4>Add Player</h4>\n    <form (submit)=\"onSubmit($event)\" #form=\"ngForm\">\n      <div>\n        <label for=\"name\">Player Name</label>\n        <input type=\"text\" name=\"name\" class=\"form-control\" [(ngModel)]=\"name\" #playerName=\"ngModel\" minlength=\"3\" required>\n        <div class=\"warning\" *ngIf=\"playerName.dirty && !playerName.valid\">** Name must be longer than 2 characters</div>\n      </div>\n\n      <div>\n        <label for=\"position\">Preferred Position</label>\n        <select name=\"position\" [(ngModel)]=\"position\" #playerPosition=\"ngModel\" required>\n          <option value=\"\"></option>\n          <option *ngFor=\"let position of positions\" value=\"{{ position | lowercase }}\">{{ position }}</option>\n        </select>\n        <div class=\"warning\" *ngIf=\"playerPosition.dirty && !playerPosition.valid\"> ** Please choose a position</div>\n      </div>\n\n      <button type=\"submit\" [disabled]=\"form.invalid\">Add Player</button>\n    </form>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -456,7 +453,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"listmanager\">\n  <p>(from listplayers component)</p>\n  <h5 *ngIf=\"players.length <= 0\">Please add a player </h5>\n\n  <table *ngIf=\"players.length > 0\">\n\n    <thead>\n      <tr>\n        <th>Name</th>\n        <th>Position</th>\n        <th>actions</th>\n      </tr>\n    </thead>\n\n    <tbody>\n      <tr *ngFor=\"let player of players\">\n        <td>{{ player.name }}</td>\n        <td>{{ player.position }}</td>\n        <td>\n          <button type=\"button\" (click)=\"openModal(player, staticModal)\">Delete</button>\n        </td>\n      </tr>\n    </tbody>\n\n  </table>\n</div>\n"
+module.exports = "<div id=\"listmanager\">\n  <!-- <p>(from listplayers component)</p> -->\n  <h5 *ngIf=\"players.length <= 0\">Please add a player </h5>\n\n  <table *ngIf=\"players.length > 0\">\n\n    <thead>\n      <tr>\n        <th>Name</th>\n        <th>Position</th>\n        <th>actions</th>\n      </tr>\n    </thead>\n\n    <tbody>\n      <tr *ngFor=\"let player of players\">\n        <td>{{ player.name }}</td>\n        <td>{{ player.position }}</td>\n        <td>\n          <button type=\"button\" (click)=\"deletePlayer(player)\">Delete</button>\n        </td>\n      </tr>\n    </tbody>\n  </table>\n</div>\n"
 
 /***/ }),
 
@@ -494,15 +491,9 @@ var ListplayersComponent = /** @class */ (function () {
         var _this = this;
         this._playerService.players.subscribe(function (players) { return _this.players = players; }, function (error) { return console.log(error); });
     };
-    ListplayersComponent.prototype.openModal = function (player, modal) {
-        event.preventDefault();
-        this.current = player;
-        modal.show();
-    };
-    ListplayersComponent.prototype.deletePlayer = function (modal) {
-        console.log(this.current);
-        this._playerService.deletePlayer(this.current);
-        modal.hide();
+    ListplayersComponent.prototype.deletePlayer = function (player) {
+        console.log(player);
+        this._playerService.deletePlayer(player);
     };
     ListplayersComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -597,7 +588,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"manager\">\n  <p>(from teammanagers component)</p>\n  <a [routerLink]=\"['list']\"> List Players </a> |\n  <a [routerLink]=\"['add']\"> Add Players </a>\n  <router-outlet></router-outlet>\n</div>\n"
+module.exports = "<div id=\"manager\">\n\n  <!-- <p>(from teammanagers component)</p> -->\n  <a [routerLink]=\"['list']\"> List Players </a> |\n  <a [routerLink]=\"['add']\"> Add Players </a>\n  <router-outlet></router-outlet>\n\n</div>\n"
 
 /***/ }),
 
