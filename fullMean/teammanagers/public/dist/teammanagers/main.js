@@ -119,7 +119,7 @@ module.exports = "#main {\n  margin-top: 20px;\n  padding-top: 20px;\n}\n"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"main\">\n  <!-- <p>(From app component root)</p> -->\n  <a [routerLink]=\"['players']\"> Manage Players </a> |\n  <a [routerLink]=\"['games']\"> Manage Player Status </a>\n\n  <router-outlet></router-outlet>\n</div>\n"
+module.exports = "<div id=\"main\">\n  <!-- <p>(From app component root)</p> -->\n  <a [routerLink]=\"['players']\" routerLinkActive=\"active\"> Manage Players </a> |\n  <a [routerLink]=\"['games']\" routerLinkActive=\"active\"> Manage Player Status </a>\n\n  <router-outlet></router-outlet>\n</div>\n"
 
 /***/ }),
 
@@ -588,7 +588,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"manager\">\n\n  <!-- <p>(from teammanagers component)</p> -->\n  <a [routerLink]=\"['list']\"> List Players </a> |\n  <a [routerLink]=\"['add']\"> Add Players </a>\n  <router-outlet></router-outlet>\n\n</div>\n"
+module.exports = "<div id=\"manager\">\n\n  <!-- <p>(from teammanagers component)</p> -->\n  <a [routerLink]=\"['list']\" routerLinkActive=\"active\"> List Players </a> |\n  <a [routerLink]=\"['add']\" routerLinkActive=\"active\"> Add Players </a>\n  <router-outlet></router-outlet>\n\n</div>\n"
 
 /***/ }),
 
