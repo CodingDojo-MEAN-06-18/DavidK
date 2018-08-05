@@ -1,6 +1,21 @@
-<h1>1st place!</h1>
-<p>
-  winners display here
-</p>
-<p>reset button here</p>
-<router-outlet></router-outlet>
+<p>(from the winner component)</p>
+<div>
+  <div>
+    <h1>1st Place</h1>
+    <p>{{ winner.name }} (Score: {{ winner.score }})</p>
+  </div>
+
+  <div>
+    <h1>2nd Place</h1>
+    <p>{{ loser.name }} (Score: {{ loser.score }})</p>
+  </div>
+
+  <div>
+    <img src="{{ winner.picture }}">
+  </div>
+
+  <div>
+    <button (click)="reset()"> Reset </button>
+  </div>
+
+</div>
