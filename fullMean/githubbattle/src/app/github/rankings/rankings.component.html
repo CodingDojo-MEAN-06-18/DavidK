@@ -1,0 +1,19 @@
+<h1>
+  Rankings</h1>
+
+<div *ngFor='let user of users; let i =index'>
+  <div>
+    <h1>{{ i + 1 }}</h1>
+  </div>
+
+  <div>
+    <div>
+      <app-username [user]="user"></app-username>
+    </div>
+  </div>
+
+  <div>
+    <h1>Score {{ user.score }}</h1>
+  </div>
+
+</div>
