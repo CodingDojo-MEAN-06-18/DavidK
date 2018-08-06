@@ -27,11 +27,11 @@ export class GithubService {
       this.winner = user2;
       this.loser = user1;
     }
-    return this._http.post('github/battle', { user1: user1, user2: user2 }).subscribe(() => { });
+    return this._http.post('/api/github/battle', { user1: user1, user2: user2 }).subscribe(() => { });
   }
 
   getUsers(): void {
-    this._http.get('/github/grab').subscribe(
+    this._http.get('/api/github/grab').subscribe(
       data => this.users.next(data as Array<User>),
       err => console.log(err)
     );
