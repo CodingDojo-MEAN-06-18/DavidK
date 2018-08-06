@@ -13,6 +13,9 @@ export class GithubService {
   loser: User;
   users: BehaviorSubject<Array<User>> = new BehaviorSubject([]);
 
+  // base points to api/books
+  private base = '/api/github';
+
   constructor(private _http: HttpClient) { }
 
   getUser(user: string): any {
@@ -27,11 +30,11 @@ export class GithubService {
       this.winner = user2;
       this.loser = user1;
     }
-    return this._http.post('/api/github/battle', { user1: user1, user2: user2 }).subscribe(() => { });
+    return this._http.post(`${this.base}/battle`, { user1: user1, user2: user2 }).subscribe(() => { });
   }
 
   getUsers(): void {
-    this._http.get('/api/github/grab').subscribe(
+    this._http.get(`${this.base}/grab`).subscribe(
       data => this.users.next(data as Array<User>),
       err => console.log(err)
     );

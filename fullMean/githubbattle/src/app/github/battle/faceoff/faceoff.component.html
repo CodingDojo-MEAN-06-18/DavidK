@@ -1,34 +1,38 @@
-<div>
-  <div>
-    <div>
-      <h1>Player 1</h1>
-      <form (submit)="setUser($event, 1)" #form1="ngForm" *ngIf="user1.image.length === 0">
-        <div>
-          <label for="user1">Github Username</label>
-          <input type="text" name="user1" [(ngModel)]="user1.name" #username1="ngModel" required>
-          <div *ngIf="username1.dirty && !username1.valid">Player name is required.</div>
-        </div>
-        <button [disabled]="form1.invalid">Get User</button>
-      </form>
-      <app-username [user]="user1" *ngIf="user1.image.length > 0"></app-username>
-    </div>
-  </div>
+<div class="player">
+  <h1>Player 1</h1>
 
-  <div class="col">
+  <form (submit)="setUser($event, 1)" #form1="ngForm" *ngIf="user1.image.length === 0">
     <div>
-      <h1>Player 2</h1>
-      <form (submit)="setUser($event, 2)" #form2="ngForm" *ngIf="user2.image.length === 0">
-        <div>
-          <label for="user2">Github Username</label>
-          <input type="text" name="user2" [(ngModel)]="user2.name" #username2="ngModel" required>
-          <div *ngIf="username2.dirty && !username2.valid">Player name is required.</div>
-        </div>
-        <button [disabled]="form2.invalid">Get User</button>
-      </form>
-      <app-username [user]="user2" *ngIf="user2.image.length > 0"></app-username>
+      <label for="user1">Github Username</label>
+      <input type="text" name="user1" [(ngModel)]="user1.name" #username1="ngModel" required>
+      <div class="error" *ngIf="username1.dirty && !username1.valid">Player name is required.</div>
     </div>
-  </div>
+
+    <button [disabled]="form1.invalid">Get User</button>
+  </form>
+
+  <app-username [user]="user1" *ngIf="user1.image.length > 0"></app-username>
 </div>
+
+
+
+<div class="player">
+  <h1>Player 2</h1>
+
+  <form (submit)="setUser($event, 2)" #form2="ngForm" *ngIf="user2.image.length === 0">
+    <div>
+      <label for="user2">Github Username</label>
+      <input type="text" name="user2" [(ngModel)]="user2.name" #username2="ngModel" required>
+      <div class="error" *ngIf="username2.dirty && !username2.valid">Player name is required.</div>
+    </div>
+    <button [disabled]="form2.invalid">Get User</button>
+  </form>
+
+  <app-username [user]="user2" *ngIf="user2.image.length > 0"></app-username>
+
+</div>
+
+
 
 <div *ngIf="user1.image.length > 0 && user2.image.length > 0">
   <div>
