@@ -1,0 +1,42 @@
+<div *ngIf='registrationErrors.length'>
+  <ul>
+    <li *ngFor='let error of registrationErrors'>{{error}}</li>
+  </ul>
+</div>
+
+<fieldset>
+  <legend>Register</legend>
+  <form (submit)='onSubmit(register.value)' #register='ngForm' class='form-group'>
+
+    <div>
+      <label for="">First Name: </label>
+      <input type="text" name='firstName' #firstName='ngModel' [(ngModel)]='user.firstName'>
+    </div>
+
+    <div>
+      <label for="">Last Name: </label>
+      <input type="text" name='lastName' #lastName='ngModel' [(ngModel)]='user.lastName'>
+    </div>
+
+    <div>
+      <label for="">Email: </label>
+      <input type="email" name='email' #email='ngModel' [(ngModel)]='user.email'>
+    </div>
+
+    <div>
+      <label for="">Password: </label>
+      <input type="text" name="password" required minlength="16" [(ngModel)]="user.password" #password='ngModel' placeholder="Password">
+      <span class="red" *ngIf="password.touched && password.errors">*Password must be at least 16 characters </span>
+    </div>
+
+    <div>
+      <label for="">Confirm Password: </label>
+      <input type="text" name="confirmPassword" required minlength="16" [(ngModel)]="user.confirmPassword" #confirmPassword='ngModel'
+        placeholder="Confirm Password" />
+      <span class="red" *ngIf="confirmPassword.touched && confirmPassword.errors"> Password must be at least 16 characters </span>
+      <span class="red" *ngIf="confirmPassword.valid && confirmPassword.value !== password.value">Password Confirmation must match Password</span>
+    </div>
+
+    <button *ngIf='register.valid'>Register</button>
+  </form>
+</fieldset>
