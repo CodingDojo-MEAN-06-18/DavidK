@@ -14,6 +14,8 @@ import { LoginComponent } from './home/login/login.component';
 import { RegisterComponent } from './home/register/register.component';
 import { AuthService } from './auth.service';
 import { BikeService } from './bike.service';
+import { AuthGuard } from './auth.guard';
+
 
 @NgModule({
   declarations: [
@@ -32,7 +34,7 @@ import { BikeService } from './bike.service';
     AppRoutingModule,
     CookieModule.forRoot()
   ],
-  providers: [AuthService, BikeService
+  providers: [AuthService, BikeService, AuthGuard
   ],
   bootstrap: [AppComponent]
 })

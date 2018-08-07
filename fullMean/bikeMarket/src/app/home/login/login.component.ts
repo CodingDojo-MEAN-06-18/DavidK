@@ -23,4 +23,8 @@ export class LoginComponent implements OnInit {
       this.router.navigateByUrl('dashboard'));
   }
 
+  private handleErrors(errors: string[] | Error): void {
+    this.errors = Array.isArray(errors) ? errors : [errors.message];
+  }
+
 }
