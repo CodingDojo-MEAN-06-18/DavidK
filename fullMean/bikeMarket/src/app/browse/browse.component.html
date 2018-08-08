@@ -1,3 +1,13 @@
-<p>
-  browse works!
-</p>
+<div *ngFor="let bike of bikes">
+  <img src="{{bike.bikepic}}">
+  <h2>{{bike.title}} </h2>
+  <p> {{bike.description}} </p>
+  <h2> {{bike.price | currency}} </h2>
+  <p> {{bike.location}} </p>
+  <div class="contact" *ngIf="bike.ownerId !== currUserId;else delete">
+    <button class="waves-effect waves-light btn yellow">Contact</button>
+  </div>
+  <ng-template #delete>
+    <button (click)="onDelete($event)" class="waves-effect waves-light btn red">DELETE</button>
+  </ng-template>
+</div>

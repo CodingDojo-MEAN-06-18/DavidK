@@ -1,3 +1,55 @@
-<p>
-  listings works!
-</p>
+<form (submit)='onSubmit($event, bikeForm)' #bikeForm='ngForm'>
+  <div class="input-field">
+    <label [ngClass]="{'active': !create}" for="">Title</label>
+    <input type="text" name='title' [(ngModel)]='bike.title' required>
+  </div>
+  <div class="input-field">
+    <label [ngClass]="{'active': !create}" for="">Description</label>
+    <input type="text" name='description' [(ngModel)]='bike.description' required>
+  </div>
+  <div class="input-field">
+    <label [ngClass]="{'active': !create}" for="">Price</label>
+    <input type="text" name='price' [(ngModel)]='bike.price' required>
+  </div>
+  <div class="input-field">
+    <label [ngClass]="{'active': !create}" for="">Location</label>
+    <input type="text" name='location' [(ngModel)]='bike.location' required>
+  </div>
+  <div class="input-field">
+    <label [ngClass]="{'active': !create}" for="">Image URL</label>
+    <input type="text" name='image' [(ngModel)]='bike.image' required>
+  </div>
+
+  <div class="buttons" *ngIf="create;else update">
+    <button type="submit" class="waves-effect waves-light btn-large" ng-disabled='bikeForm.invalid'>Create</button>
+  </div>
+</form>
+
+<li *ngFor='let bike of bikes'>
+  <form (submit)='onSubmit($event, bikeForm)' #bikeForm='ngForm'>
+    <div class="input-field">
+      <label [ngClass]="{'active': !create}" for="">Title</label>
+      <input type="text" name='title' [(ngModel)]='bike.title' required>
+    </div>
+    <div class="input-field">
+      <label [ngClass]="{'active': !create}" for="">Description</label>
+      <input type="text" name='description' [(ngModel)]='bike.description' required>
+    </div>
+    <div class="input-field">
+      <label [ngClass]="{'active': !create}" for="">Price</label>
+      <input type="text" name='price' [(ngModel)]='bike.price' required>
+    </div>
+    <div class="input-field">
+      <label [ngClass]="{'active': !create}" for="">Location</label>
+      <input type="text" name='location' [(ngModel)]='bike.location' required>
+    </div>
+    <div class="input-field">
+      <label [ngClass]="{'active': !create}" for="">Image URL</label>
+      <input type="text" name='image' [(ngModel)]='bike.image' required>
+    </div>
+
+    <div class="buttons" *ngIf="create;else update">
+      <button type="submit" class="waves-effect waves-light btn-large" ng-disabled='bikeForm.invalid'>Create</button>
+    </div>
+  </form>
+</li>

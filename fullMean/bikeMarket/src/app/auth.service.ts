@@ -34,4 +34,8 @@ export class AuthService {
     return session && expired && userID && expired > Date.now();
   }
 
+  getUserId(): string {
+    return this.cookieService.get('userID');
+  }
+
 }
