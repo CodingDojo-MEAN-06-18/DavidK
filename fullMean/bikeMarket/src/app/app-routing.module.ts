@@ -11,7 +11,7 @@ const routes: Routes = [
     component: HomeComponent
   },
   {
-    path: 'dashboard',
+    path: 'browse',
     component: BrowseComponent,
     canActivate: [ AuthGuard ]
   },

@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
 
   onSubmit(user: User) {
     this.auth.login(user).subscribe(() =>
-      this.router.navigateByUrl('dashboard'));
+      this.router.navigateByUrl('browse'));
   }
 
   private handleErrors(errors: string[] | Error): void {
