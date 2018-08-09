@@ -13,6 +13,7 @@ import { RegisterComponent } from './dashboard/register/register.component';
 import { NavComponent } from './nav/nav.component';
 
 import * as fromServices from './services';
+import { RandombikeComponent } from './dashboard/randombike/randombike.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import * as fromServices from './services';
     DashboardComponent,
     LoginComponent,
     RegisterComponent,
-    NavComponent
+    NavComponent,
+    RandombikeComponent
   ],
   imports: [
     BrowserModule,

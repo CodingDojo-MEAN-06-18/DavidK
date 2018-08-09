@@ -11,9 +11,24 @@ import { User } from '../../user';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  user: User = new User();
+  errors: string[] = [];
+
+
+  constructor(
+    private auth: AuthService,
+    private router: Router
+  ) { }
 
   ngOnInit() {
+  }
+
+  onSubmit(user: User): void {
+    console.log('logging in user', user);
+    this.auth.login(user).subscribe(() => this.router.navigateByUrl('bikes'));
+  }
+  private handleErrors(errors: string[] | Error): void {
+    this.errors = Array.isArray(errors) ? errors : [errors.message];
   }
 
 }

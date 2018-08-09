@@ -10,20 +10,28 @@
     <legend>Register</legend>
     <form (submit)='onSubmit(register.value)' #register='ngForm' class='form-group'>
       <div class="form-control">
-        <label for="">firstname</label>
+        <label for="">First Name:</label>
         <input type="text" name='firstname' #firstname='ngModel' [(ngModel)]='user.firstname' required>
       </div>
       <div class="form-control">
-        <label for="">lastname</label>
+        <label for="">Last Name:</label>
         <input type="text" name='lastname' #lastname='ngModel' [(ngModel)]='user.lastname' required>
       </div>
       <div class="form-control">
-        <label for="">Email</label>
+        <label for="">Email:</label>
         <input type="email" name='email' #username='ngModel' [(ngModel)]='user.email' required>
       </div>
       <div class="form-control">
-        <label for="">Password</label>
+        <label for="">Password:</label>
         <input type="password" name='password' #password='ngModel' [(ngModel)]='user.password' minlength='8' required>
+        <span class="red" *ngIf="password.touched && password.errors">*Password must be at least 8 characters </span>
+      </div>
+      <div class="form-control">
+        <label for="">Confirm Password:</label>
+        <input type="password" name='confirmpassword' #confirmpassword='ngModel' [(ngModel)]='user.confirmpassword' minlength='8'
+          required>
+        <span class="red" *ngIf="confirmpassword.touched && confirmpassword.errors"> *Password must be at least 8 characters </span>
+        <span class="red" *ngIf="confirmpassword.valid && confirmpassword.value !== password.value">*Password Confirmation must match Password</span>
       </div>
       <button class="btn btn-primary" [disabled]='!register.valid'>Register</button>
     </form>
