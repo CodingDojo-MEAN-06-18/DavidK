@@ -14,6 +14,8 @@ import { NavComponent } from './nav/nav.component';
 
 import * as fromServices from './services';
 import { RandombikeComponent } from './dashboard/randombike/randombike.component';
+import { BrowseComponent } from './browse/browse.component';
+import { ListingsComponent } from './listings/listings.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { RandombikeComponent } from './dashboard/randombike/randombike.component
     LoginComponent,
     RegisterComponent,
     NavComponent,
-    RandombikeComponent
+    RandombikeComponent,
+    BrowseComponent,
+    ListingsComponent
   ],
   imports: [
     BrowserModule,

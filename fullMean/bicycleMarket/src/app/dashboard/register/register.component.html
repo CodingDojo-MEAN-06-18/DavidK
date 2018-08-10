@@ -24,14 +24,14 @@
       <div class="form-control">
         <label for="">Password:</label>
         <input type="password" name='password' #password='ngModel' [(ngModel)]='user.password' minlength='8' required>
-        <span class="red" *ngIf="password.touched && password.errors">*Password must be at least 8 characters </span>
+        <p class="red" *ngIf="password.touched && password.errors">*Password must be at least 8 characters </p>
       </div>
       <div class="form-control">
         <label for="">Confirm Password:</label>
         <input type="password" name='confirmpassword' #confirmpassword='ngModel' [(ngModel)]='user.confirmpassword' minlength='8'
           required>
-        <span class="red" *ngIf="confirmpassword.touched && confirmpassword.errors"> *Password must be at least 8 characters </span>
-        <span class="red" *ngIf="confirmpassword.valid && confirmpassword.value !== password.value">*Password Confirmation must match Password</span>
+        <p class="red" *ngIf="confirmpassword.touched && confirmpassword.errors"> *Password must be at least 8 characters </p>
+        <p class="red" *ngIf="confirmpassword.valid && confirmpassword.value !== password.value">*Password Confirmation must match Password</p>
       </div>
       <button class="btn btn-primary" [disabled]='!register.valid'>Register</button>
     </form>

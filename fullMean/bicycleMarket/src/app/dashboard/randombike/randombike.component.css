@@ -1,0 +1,10 @@
+img {
+  width: 30%;
+  height: auto;
+  margin: 5px;
+}
+.container {
+  margin: 0 auto;
+  text-align: center;
+  padding-top: 10px;
+}

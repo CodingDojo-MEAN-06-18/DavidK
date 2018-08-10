@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BikeService } from '../../services/bike.service';
-
+import { Bike } from '../../bike';
 
 
 @Component({
@@ -10,7 +10,7 @@ import { BikeService } from '../../services/bike.service';
 })
 export class RandombikeComponent implements OnInit {
 
-  bikes = [];
+  bikes: Bike[] = [];
   bike = {};
 
 
