@@ -1,6 +1,6 @@
 <div class="container">
 
-  <!-- <div class="row">
+  <div class="row">
     <div class="col-12">
       <div class="container">
         <label for="search">
@@ -10,7 +10,7 @@
         <button *ngIf='filter.title' (click)='filter.title = null' class="btn btn-primary">x</button>
       </div>
     </div>
-  </div> -->
+  </div>
 
   <!-- List of all bikes -->
   <div class="container" *ngFor='let bike of bikes'>
@@ -35,7 +35,7 @@
             <p>{{ bike.location }}</p>
           </div>
           <div class="row">
-            <button class="btn btn-danger" *ngIf='authed; else login' (click)='onDelete(bike)'>Delete</button>
+            <button class="btn btn-danger" *ngIf="bike.ownerId === currUserId;" (click)='onDelete(bike)'>Delete</button>
             <button class="btn btn-primary" (click)="openModal(bike)">Contact</button>
           </div>
         </div>
@@ -44,7 +44,8 @@
   </div>
 </div>
 
-<!-- Modal features -->
+
+<!-- Modal -->
 <div class="bground" [ngStyle]="{'display':display}"></div>
 <div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':display}">
   <div class="modal-dialog" role="document">
@@ -56,7 +57,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <p>Name: {{ bikeOwnerInfo.name }}</p>
+        <p>Name: {{ bikes.title }}</p>
         <p>Email: {{ bikeOwnerInfo.email }}</p>
       </div>
     </div>

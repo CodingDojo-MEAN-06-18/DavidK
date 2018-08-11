@@ -1,6 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { Bike } from '../bike';
+import { User } from '../user';
 import { AuthService } from '../services/auth.service';
 import { BikeService } from '../services/bike.service';
 
@@ -19,9 +20,15 @@ export class BrowseComponent implements OnInit, OnDestroy {
   display = 'none';
   bikeOwnerInfo = { id: '', name: '', email: '' };
 
+  public currUserId: string;
+
   constructor(private bikeService: BikeService, private auth: AuthService) { }
 
   ngOnInit() {
+    // gets current logged in user
+    this.currUserId = this.auth.getUserId();
+
+    // gets all bikes
     this.sub = this.bikeService.getBikes().subscribe(bikes => {
       this.bikes = bikes;
     });
@@ -52,6 +59,8 @@ export class BrowseComponent implements OnInit, OnDestroy {
   openModal(bike) {
     this.display = 'block';
     this.bikeOwnerInfo.id = bike.ownerId;
+    console.log(bike.ownerId.name);
+    console.log(bike.ownerId);
   }
 
   onCloseHandled() {

@@ -17,7 +17,8 @@ module.exports = {
           .status(500)
           .json(
             Object.keys(error.errors).map(key => error.errors[key].message)
-          );
+        );
+        console.log('error creating', error);
       });
   },
   // get a single resource
@@ -38,4 +39,5 @@ module.exports = {
       .then(bike => response.json(bike))
       .catch(console.log);
   },
+
 };

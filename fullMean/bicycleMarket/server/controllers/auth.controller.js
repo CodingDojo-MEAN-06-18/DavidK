@@ -1,6 +1,7 @@
 const User = require('mongoose').model('User');
 
 module.exports = {
+
   // get a user by id from the service
   index(request, response) {
     User.findById(request.params.user_id)
@@ -19,7 +20,7 @@ module.exports = {
           throw new Error('Passwords do not match');
         }
          //handle login
-          completeLogin(request, response, user);
+        completeLogin(request, response, user);
       })
       .catch(error => {
         console.log('error message', error.message);
@@ -44,7 +45,7 @@ module.exports = {
       response.clearCookie('userID', { path: '/' });
       response.clearCookie('expiration', { path: '/' });
       response.json(true);
-    }
+  }
 };
 
 function completeLogin(request, response, user) {
@@ -52,11 +53,11 @@ function completeLogin(request, response, user) {
   request.session.user = user.toObject();
   //make sure password isn't saved in session
   delete request.session.user.password;
-  console.log(request.session.user);
+  delete request.session.user.confirmpassword;
+  console.log('hello there', request.session.user);
 
   //set cookies
   response.cookie('userID', user._id.toString());
   response.cookie('expiration', Date.now() + 86400 * 1000);
-
   response.json(user);
 }

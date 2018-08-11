@@ -5,30 +5,30 @@ const { Schema } = mongoose;
 const bikeSchema = new Schema ({
   title: {
       type: String,
-      required: [true, "Title is required"],
+      required: [true, "title is required"],
       minlength: 3
   },
   description: {
       type: String,
-      required: [true, "Description is required"],
+      required: [true, "description is required"],
       maxlength: 200
   },
   price: {
       type: Number,
-      required: [true, "Price is required"],
+      required: [true, "price is required"],
       min: 1
   },
   location: {
       type: String,
-      required: [true, "Location is required"],
+      required: [true, "location is required"],
       minlength: 5
   },
   image: {
       type: String
   },
-  userid: {
+  ownerId: {
     type: String,
-    required:[true, 'user id is required']
+    // required:[true, 'ownerId is required']
   }
   }, {timestamps: true })
 

@@ -21,8 +21,24 @@
           </div>
 
           <div>
+            <label for="">Description</label>
+            <input class="form-control" type="text" name='description' required [(ngModel)]='bike.description'>
+          </div>
+
+          <div>
             <label for="">Image URL</label>
             <input class="form-control" type="text" name='image' required [(ngModel)]='bike.image'>
+          </div>
+
+
+
+
+          <div *ngIf="currentUserInfo" ng-hide="true">
+            <label for="">UserId:
+              <input type="text" name="userId" value="{{currentUserInfo._id}}" required minlength="3" maxlength="24" [(ngModel)]="bike.userId"
+                #userID='ngModel' placeholder="{{currentUserInfo._id}}" />
+            </label>
+            <br>
           </div>
 
 
@@ -37,41 +53,43 @@
   <div class="container">
     <h3>Edit/Delete Listings</h3>
     <div class="container" *ngFor='let bike of bikes'>
-      <form (submit)='onUpdate($event, updateForm)' #updateForm='ngForm'>
-        <div class="listing">
-          <div class="row">
-            <div class="col-3">
-              <img src="{{ bike.image }}" alt="bike-image">
-              <label for="">Image URL: </label>
-              <input class="form-control" type="text" name='image' value="{{ bike.image }}" required [(ngModel)]='bike.image'>
-            </div>
-            <div class="col-6">
-              <div class="row">
-                <label for="">Title</label>
-                <input class="form-control" type="text" name="title" required [(ngModel)]='bike.title'>
+      <div *ngIf="bike.ownerId === currUserId;">
+        <form (submit)='onUpdate($event, updateForm)' #updateForm='ngForm'>
+          <div class="listing">
+            <div class="row">
+              <div class="col-3">
+                <img src="{{ bike.image }}" alt="bike-image">
+                <label for="">Image URL: </label>
+                <input class="form-control" type="text" name='image' value="{{ bike.image }}" required [(ngModel)]='bike.image'>
               </div>
-              <div class="row">
-                <label for="">Description: </label>
-                <input class="form-control" type="text" name='Description' required maxlength="200" [(ngModel)]='bike.description'>
+              <div class="col-6">
+                <div class="row">
+                  <label for="">Title</label>
+                  <input class="form-control" type="text" name="title" required [(ngModel)]='bike.title'>
+                </div>
+                <div class="row">
+                  <label for="">Description: </label>
+                  <input class="form-control" type="text" name='Description' required maxlength="200" [(ngModel)]='bike.description'>
+                </div>
               </div>
-            </div>
-            <div class="col-3">
-              <div class="row">
-                <label for="">Price: </label>
-                <input class="form-control" type="number" name='price' value="{{ bike.price }}" required min="1" [(ngModel)]='bike.price'>
-              </div>
-              <div class="row">
-                <label for="">Location:</label>
-                <input class="form-control" type="text" name='location' value="{{ bike.location }}" required [(ngModel)]='bike.location'>
-              </div>
-              <div class="row">
-                <button class="btn btn-danger" (click)="onDelete(bike)">Delete</button>
-                <button class="btn btn-success" [disabled]="!updateForm.valid" (click)="onUpdate(bike)">Update</button>
+              <div class="col-3">
+                <div class="row">
+                  <label for="">Price: </label>
+                  <input class="form-control" type="number" name='price' value="{{ bike.price }}" required min="1" [(ngModel)]='bike.price'>
+                </div>
+                <div class="row">
+                  <label for="">Location:</label>
+                  <input class="form-control" type="text" name='location' value="{{ bike.location }}" required [(ngModel)]='bike.location'>
+                </div>
+                <div class="row">
+                  <button class="btn btn-danger" (click)="onDelete(bike)">Delete</button>
+                  <button class="btn btn-success" [disabled]="!updateForm.valid" (click)="onUpdate(bike)">Update</button>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </form>
+        </form>
+      </div>
     </div>
   </div>
 </div>

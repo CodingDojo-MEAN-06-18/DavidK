@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy} from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
@@ -18,18 +18,23 @@ export class ListingsComponent implements OnInit, OnDestroy {
   bikes: Bike[] = [];
   sub: Subscription;
 
+  public currUserId: string;
 
   constructor(
-    private readonly bikeService: BikeService,
+    private bikeService: BikeService,
     private router: Router,
-    private authService: AuthService
+    private authService: AuthService,
   ) { }
 
+
   ngOnInit() {
+    this.currUserId = this.authService.getUserId();
     this.sub = this.bikeService.getBikes().subscribe(bikes => {
       this.bikes = bikes;
     });
   }
+
+
 
   ngOnDestroy() {
     if (this.sub) {
@@ -40,6 +45,8 @@ export class ListingsComponent implements OnInit, OnDestroy {
   onSubmit(event: Event, form: NgForm) {
     event.preventDefault();
     console.log('submitting form', this.bike);
+    this.bike.ownerId = this.authService.getUserId();
+    console.log(this.bike.ownerId);
     this.sub = this.bikeService.createBike(this.bike)
       .subscribe(bike => {
         console.log('bike from api', bike);
