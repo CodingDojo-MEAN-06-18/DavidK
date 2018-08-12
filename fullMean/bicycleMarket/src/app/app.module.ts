@@ -13,12 +13,17 @@ import { RegisterComponent } from './dashboard/register/register.component';
 import { NavComponent } from './nav/nav.component';
 
 import * as fromServices from './services';
+import * as fromShared from './shared';
+
 import { RandombikeComponent } from './dashboard/randombike/randombike.component';
 import { BrowseComponent } from './browse/browse.component';
 import { ListingsComponent } from './listings/listings.component';
 
+import { AuthGuard } from './auth.guard';
+
 @NgModule({
   declarations: [
+    ...fromShared.declarations,
     AppComponent,
     DashboardComponent,
     LoginComponent,
@@ -35,7 +40,11 @@ import { ListingsComponent } from './listings/listings.component';
     FormsModule,
     CookieModule.forRoot()
   ],
-  providers: [...fromServices.services],
+  providers: [
+    ...fromServices.services,
+    ...fromShared.declarations,
+    AuthGuard
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

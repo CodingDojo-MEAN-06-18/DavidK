@@ -28,6 +28,7 @@ module.exports = {
       });
   },
 
+
   register(request, response) {
     console.log('registering user', request.body);
     User.create(request.body)

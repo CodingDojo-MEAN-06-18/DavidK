@@ -3,17 +3,18 @@
   <div class="row">
     <div class="col-12">
       <div class="container">
-        <label for="search">
-          <b>Search: </b>
-        </label>
-        <input class="search" type="text" placeholder="Search for a bike" [(ngModel)]='filter.title'>
-        <button *ngIf='filter.title' (click)='filter.title = null' class="btn btn-primary">x</button>
+        <div class="input-field">
+          <label for="">Search : </label>
+          <input [(ngModel)]="searchingText" type="text">
+        </div>
       </div>
     </div>
   </div>
 
+
+
   <!-- List of all bikes -->
-  <div class="container" *ngFor='let bike of bikes'>
+  <div class="container" *ngFor='let bike of bikes | filter: searchingText'>
     <div class="allbikes">
       <div class="row">
         <div class="col-3">
@@ -36,7 +37,7 @@
           </div>
           <div class="row">
             <button class="btn btn-danger" *ngIf="bike.ownerId === currUserId;" (click)='onDelete(bike)'>Delete</button>
-            <button class="btn btn-primary" (click)="openModal(bike)">Contact</button>
+            <button class="btn btn-primary" *ngIf="bike.ownerId !== currUserId;" (click)="openModal(bike.ownerId)">Contact</button>
           </div>
         </div>
       </div>
@@ -57,8 +58,8 @@
         </button>
       </div>
       <div class="modal-body">
-        <p>Name: {{ bikes.title }}</p>
-        <p>Email: {{ bikeOwnerInfo.email }}</p>
+        <p>Name: {{ contact.firstname }} </p>
+        <p>Email: {{ contact.email }}</p>
       </div>
     </div>
   </div>

@@ -23,6 +23,11 @@ export class BikeService {
     return this.http.get<Bike>(`${this.base}/${id}`);
   }
 
+  searchBikes(search: string): any {
+    console.log('SERVICE is searching for a bike', search);
+    return this.http.get(`${this.base}/${search}`);
+  }
+
   createBike(bike: Bike): Observable<Bike> {
     return this.http.post<Bike>(this.base, bike);
   }

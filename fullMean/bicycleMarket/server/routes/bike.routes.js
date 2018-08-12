@@ -10,3 +10,4 @@ module.exports = router
   .get('/:bike_id', bikeController.show)
   .put('/:bike_id', bikeController.update)
   .delete('/:bike_id', bikeController.destroy);
+

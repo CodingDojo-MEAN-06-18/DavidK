@@ -4,7 +4,7 @@ import { Bike } from '../bike';
 import { User } from '../user';
 import { AuthService } from '../services/auth.service';
 import { BikeService } from '../services/bike.service';
-
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-browse',
@@ -16,10 +16,16 @@ export class BrowseComponent implements OnInit, OnDestroy {
   bikes: Bike[] = [];
   sub: Subscription;
   authed: boolean;
-  filter: Bike = new Bike();
-  display = 'none';
-  bikeOwnerInfo = { id: '', name: '', email: '' };
 
+  display = 'none';
+
+  contact = {
+    firstname: '',
+    lastname: '',
+    email: ''
+  };
+
+  filter = '';
   public currUserId: string;
 
   constructor(private bikeService: BikeService, private auth: AuthService) { }
@@ -40,9 +46,7 @@ export class BrowseComponent implements OnInit, OnDestroy {
     this.sub.unsubscribe();
   }
 
-  clearFilter(): void {
-    this.filter = new Bike();
-  }
+
   onClick(event: Event) {
     event.stopPropagation();
     console.log('stopping prop', event);
@@ -55,18 +59,25 @@ export class BrowseComponent implements OnInit, OnDestroy {
         this.bikes = this.bikes.filter(bike => bike._id !== deletedBike._id);
       });
   }
-  // Modal
-  openModal(bike) {
-    this.display = 'block';
-    this.bikeOwnerInfo.id = bike.ownerId;
-    console.log(bike.ownerId.name);
-    console.log(bike.ownerId);
+  // Modal needs to be fixed
+  openModal(ownerId: string) {
+    const observer = this.auth.contact(ownerId);
+    observer.subscribe(
+      (response) => {
+        console.log('here is contact', response);
+        this.contact = response;
+      },
+      (error) => {
+        console.log(error);
+      });
   }
 
   onCloseHandled() {
     this.display = 'none';
-    this.bikeOwnerInfo = {id: '', name: '', email: ''};
+    this.contact = {lastname: '', firstname: '', email: ''};
   }
+
+
 
 }
 
