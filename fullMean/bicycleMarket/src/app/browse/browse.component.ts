@@ -61,7 +61,7 @@ export class BrowseComponent implements OnInit, OnDestroy {
   }
   // Modal needs to be fixed
   openModal(ownerId: string) {
-    const observer = this.auth.contact(ownerId);
+    const observer = this.auth.getContact(ownerId);
     observer.subscribe(
       (response) => {
         console.log('here is contact', response);

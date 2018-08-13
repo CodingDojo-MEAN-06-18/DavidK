@@ -1,21 +1,23 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://unpkg.com/bootstrap@4.1.1/dist/css/bootstrap.min.css');
+
 body {
   width: 75vw;
   margin: 0 auto;
 }
 
 #manager{
-  border: 2px solid black;
-  padding: 20px;
-  margin: 20px;
+
+
+  margin-top: 20px;
   height: 100%;
 
 }
 
 #listmanager {
-  border: 2px solid black;
-  padding: 20px;
-  margin: 20px;
+
+
+  margin-top: 20px;
   height: 100%;
 
 }

@@ -108,7 +108,7 @@ var AppRoutingModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "#main {\n  margin-top: 20px;\n  padding-top: 20px;\n}\n"
+module.exports = "#main {\n  margin-top: 20px;\n  padding-top: 20px;\n}\na {\n  color: white;\n}\n"
 
 /***/ }),
 
@@ -119,7 +119,7 @@ module.exports = "#main {\n  margin-top: 20px;\n  padding-top: 20px;\n}\n"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"main\">\n  <!-- <p>(From app component root)</p> -->\n  <a [routerLink]=\"['players']\" routerLinkActive=\"active\"> Manage Players </a> |\n  <a [routerLink]=\"['games']\" routerLinkActive=\"active\"> Manage Player Status </a>\n\n  <router-outlet></router-outlet>\n</div>\n"
+module.exports = "<div class=\"container\">\n  <h1>Softball Tournament</h1>\n  <!-- <p>(From app component root)</p> -->\n  <nav class=\"navbar navbar-expand-lg navbar-dark bg-primary\">\n    <ul class=\"navbar-nav\">\n      <li class=\"nav-item\">\n        <a [routerLink]=\"['players']\" routerLinkActive=\"active\"> Manage Players </a> |\n      </li>\n    </ul>\n    <ul class=\"navbar-nav\">\n      <li class=\"nav-item\">\n        <a [routerLink]=\"['games']\" routerLinkActive=\"active\"> Manage Player Status </a>\n      </li>\n    </ul>\n\n\n  </nav>\n  <router-outlet></router-outlet>\n</div>\n"
 
 /***/ }),
 
@@ -402,11 +402,14 @@ var AddplayerComponent = /** @class */ (function () {
         this._playerService = _playerService;
         this._router = _router;
         this.positions = [
-            'pg',
-            'sg',
-            'sf',
-            'pf',
-            'c'
+            'leftField',
+            'rightField',
+            'centerField',
+            'pitcher',
+            'first',
+            'second',
+            'shortstop',
+            'third'
         ];
         // tslint:disable-next-line:no-inferrable-types
         this.name = '';
@@ -453,7 +456,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"listmanager\">\n  <!-- <p>(from listplayers component)</p> -->\n  <h5 *ngIf=\"players.length <= 0\">Please add a player </h5>\n\n  <table *ngIf=\"players.length > 0\">\n\n    <thead>\n      <tr>\n        <th>Name</th>\n        <th>Position</th>\n        <th>actions</th>\n      </tr>\n    </thead>\n\n    <tbody>\n      <tr *ngFor=\"let player of players\">\n        <td>{{ player.name }}</td>\n        <td>{{ player.position }}</td>\n        <td>\n          <button type=\"button\" (click)=\"deletePlayer(player)\">Delete</button>\n        </td>\n      </tr>\n    </tbody>\n  </table>\n</div>\n"
+module.exports = "<div class=\"container\">\n\n\n  <!-- <p>(from listplayers component)</p> -->\n  <h5 *ngIf=\"players.length <= 0\">Please add a player </h5>\n\n  <table *ngIf=\"players.length > 0\">\n\n    <thead>\n      <tr>\n        <th>Name</th>\n        <th>Position</th>\n        <th>Actions</th>\n      </tr>\n    </thead>\n\n    <tbody>\n      <tr *ngFor=\"let player of players\">\n        <td class=\"col-2\">{{ player.name }}</td>\n        <td class=\"col-2\">{{ player.position }}</td>\n        <td class=\"col-2\">\n          <button type=\"button\" (click)=\"deletePlayer(player)\">Delete</button>\n        </td>\n      </tr>\n    </tbody>\n  </table>\n\n\n\n</div>\n"
 
 /***/ }),
 
@@ -588,7 +591,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"manager\">\n\n  <!-- <p>(from teammanagers component)</p> -->\n  <a [routerLink]=\"['list']\" routerLinkActive=\"active\"> List Players </a> |\n  <a [routerLink]=\"['add']\" routerLinkActive=\"active\"> Add Players </a>\n  <router-outlet></router-outlet>\n\n</div>\n"
+module.exports = "<div class=\"container\">\n  <div class=\"container\">\n    <div id=\"manager\">\n\n      <!-- <p>(from teammanagers component)</p> -->\n      <a [routerLink]=\"['list']\" routerLinkActive=\"active\"> List Players </a> |\n      <a [routerLink]=\"['add']\" routerLinkActive=\"active\"> Add Players </a>\n      <router-outlet></router-outlet>\n\n    </div>\n  </div>\n</div>\n"
 
 /***/ }),
 

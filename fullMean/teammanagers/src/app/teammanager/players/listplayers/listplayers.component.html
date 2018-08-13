@@ -1,4 +1,6 @@
-<div id="listmanager">
+<div class="container">
+
+
   <!-- <p>(from listplayers component)</p> -->
   <h5 *ngIf="players.length <= 0">Please add a player </h5>
 
@@ -8,18 +10,21 @@
       <tr>
         <th>Name</th>
         <th>Position</th>
-        <th>actions</th>
+        <th>Actions</th>
       </tr>
     </thead>
 
     <tbody>
       <tr *ngFor="let player of players">
-        <td>{{ player.name }}</td>
-        <td>{{ player.position }}</td>
-        <td>
+        <td class="col-2">{{ player.name }}</td>
+        <td class="col-2">{{ player.position }}</td>
+        <td class="col-2">
           <button type="button" (click)="deletePlayer(player)">Delete</button>
         </td>
       </tr>
     </tbody>
   </table>
+
+
+
 </div>

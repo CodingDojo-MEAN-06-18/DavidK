@@ -10,11 +10,14 @@ import { Router } from '@angular/router';
 })
 export class AddplayerComponent implements OnInit {
   positions: Array<string> = [
-    'pg',
-    'sg',
-    'sf',
-    'pf',
-    'c'
+    'leftField',
+    'rightField',
+    'centerField',
+    'pitcher',
+    'first',
+    'second',
+    'shortstop',
+    'third'
   ];
   // tslint:disable-next-line:no-inferrable-types
   name: string = '';

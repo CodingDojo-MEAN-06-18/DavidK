@@ -51,8 +51,8 @@ export class AuthService {
   getUserId(): string {
     return this.cookieService.get('userID');
   }
-  contact(_id: String): Observable<User> {
-    return this.http.get<User>(`info/${_id}`);
+  getContact(_id: String): Observable<User> {
+    return this.http.get<User>('ownerId');
   }
 
 

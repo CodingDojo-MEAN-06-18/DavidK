@@ -1,8 +1,12 @@
-<div id="manager">
+<div class="container">
+  <div class="container">
+    <div id="manager">
 
-  <!-- <p>(from teammanagers component)</p> -->
-  <a [routerLink]="['list']" routerLinkActive="active"> List Players </a> |
-  <a [routerLink]="['add']" routerLinkActive="active"> Add Players </a>
-  <router-outlet></router-outlet>
+      <!-- <p>(from teammanagers component)</p> -->
+      <a [routerLink]="['list']" routerLinkActive="active"> List Players </a> |
+      <a [routerLink]="['add']" routerLinkActive="active"> Add Players </a>
+      <router-outlet></router-outlet>
 
+    </div>
+  </div>
 </div>
