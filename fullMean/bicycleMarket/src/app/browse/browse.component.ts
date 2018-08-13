@@ -5,6 +5,7 @@ import { User } from '../user';
 import { AuthService } from '../services/auth.service';
 import { BikeService } from '../services/bike.service';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-browse',
@@ -28,7 +29,7 @@ export class BrowseComponent implements OnInit, OnDestroy {
   filter = '';
   public currUserId: string;
 
-  constructor(private bikeService: BikeService, private auth: AuthService) { }
+  constructor(private bikeService: BikeService, private auth: AuthService, private router: Router) { }
 
   ngOnInit() {
     // gets current logged in user
@@ -61,20 +62,25 @@ export class BrowseComponent implements OnInit, OnDestroy {
   }
   // Modal needs to be fixed
   openModal(ownerId: string) {
+    this.display = 'block';
+    console.log('contact id:', ownerId);
     const observer = this.auth.getContact(ownerId);
     observer.subscribe(
       (response) => {
-        console.log('here is contact', response);
+        console.log('get contact', response);
         this.contact = response;
+        // console.log('firstname: ', this.contact[0].firstname);
+        // console.log('lastname: ', this.contact[0].lastname);
+        // console.log('email: ', this.contact[0].email);
       },
-      (error) => {
-        console.log(error);
+      (Error) => {
+        console.log('error', Error);
       });
   }
 
   onCloseHandled() {
     this.display = 'none';
-    this.contact = {lastname: '', firstname: '', email: ''};
+    this.contact = { firstname: '', lastname: '', email: ''};
   }
 
 

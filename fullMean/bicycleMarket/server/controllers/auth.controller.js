@@ -4,7 +4,7 @@ module.exports = {
 
   // get a user by id from the service
   index(request, response) {
-    User.findById(request.params.user_id)
+    User.find ({ _id: request.params.id})
       .then(data => {
         response.json(data)
       })

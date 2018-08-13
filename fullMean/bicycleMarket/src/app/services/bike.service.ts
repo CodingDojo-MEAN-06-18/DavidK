@@ -24,7 +24,6 @@ export class BikeService {
   }
 
   searchBikes(search: string): any {
-    console.log('SERVICE is searching for a bike', search);
     return this.http.get(`${this.base}/${search}`);
   }
 

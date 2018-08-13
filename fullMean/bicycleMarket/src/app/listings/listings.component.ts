@@ -55,6 +55,7 @@ export class ListingsComponent implements OnInit, OnDestroy {
         this.sub = this.bikeService.getBikes().subscribe(bikes => {
           this.bikes = bikes;
         });
+        this.router.navigateByUrl('/bikes');
       });
   }
 

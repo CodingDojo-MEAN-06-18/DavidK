@@ -51,11 +51,10 @@ export class AuthService {
   getUserId(): string {
     return this.cookieService.get('userID');
   }
-  getContact(_id: String): Observable<User> {
-    return this.http.get<User>('ownerId');
+
+  getContact(ownerId: string): Observable<User> {
+    return this.http.get<User>(this.base + '/getcontact/' + ownerId);
   }
-
-
 
 }
 

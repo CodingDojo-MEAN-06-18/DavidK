@@ -1,4 +1,4 @@
-<div class="container">
+<div class="top container">
 
   <div class="row">
     <div class="col-12">
@@ -58,8 +58,8 @@
         </button>
       </div>
       <div class="modal-body">
-        <p>Name: {{ contact.firstname }} </p>
-        <p>Email: {{ contact.email }}</p>
+        <p>Name: {{ contact[0]?.firstname }} </p>
+        <p>Email: {{ contact[0]?.email }}</p>
       </div>
     </div>
   </div>
